@@ -3,6 +3,7 @@
 # 
 
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 create_project -in_memory -part xc7a100tcsg324-1
@@ -19,11 +20,11 @@ set_property target_language Verilog [current_project]
 set_property ip_output_repo z:/demo/demo.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib Z:/demo/demo.srcs/sources_1/new/main.v
-read_ip -quiet z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci
+read_ip -quiet Z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_ooc.xdc]
-set_property is_locked true [get_files z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci]
+set_property is_locked true [get_files Z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci]
 
 foreach dcp [get_files -quiet -all *.dcp] {
   set_property used_in_implementation false $dcp
