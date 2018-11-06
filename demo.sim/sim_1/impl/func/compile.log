@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/demo/demo.sim/sim_1/impl/func/m_main_func_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-311] analyzing module clk_wiz_0clk_wiz_0_clk_wiz
+INFO: [VRFC 10-311] analyzing module m_main
+INFO: [VRFC 10-311] analyzing module sram
+INFO: [VRFC 10-311] analyzing module glbl

@@ -2,8 +2,8 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Mon Nov 05 16:52:55 2018
-# Process ID: 3316
+# Start of session at: Tue Nov 06 17:24:20 2018
+# Process ID: 9108
 # Current directory: Z:/demo/demo.runs/synth_1
 # Command line: vivado.exe -log m_main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source m_main.tcl
 # Log file: Z:/demo/demo.runs/synth_1/m_main.vds
@@ -15,30 +15,53 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 644 
+INFO: Helper process launched with PID 9032 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:15 . Memory (MB): peak = 305.605 ; gain = 95.680
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:15 . Memory (MB): peak = 305.363 ; gain = 95.184
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'm_main' [Z:/demo/demo.srcs/sources_1/new/main.v:8]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [Z:/demo/demo.runs/synth_1/.Xil/Vivado-3316-DESKTOP-5KRUO71/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [Z:/demo/demo.runs/synth_1/.Xil/Vivado-3316-DESKTOP-5KRUO71/realtime/clk_wiz_0_stub.v:5]
-WARNING: [Synth 8-387] label required on module instance [Z:/demo/demo.srcs/sources_1/new/main.v:31]
-INFO: [Synth 8-638] synthesizing module 'm_lfsr' [Z:/demo/demo.srcs/sources_1/new/main.v:58]
-INFO: [Synth 8-256] done synthesizing module 'm_lfsr' (2#1) [Z:/demo/demo.srcs/sources_1/new/main.v:58]
-WARNING: [Synth 8-689] width (33) of port connection 'rand' does not match port width (32) of module 'm_lfsr' [Z:/demo/demo.srcs/sources_1/new/main.v:31]
-INFO: [Synth 8-638] synthesizing module 'm_7segcon' [Z:/demo/demo.srcs/sources_1/new/main.v:100]
-INFO: [Synth 8-638] synthesizing module 'm_7segled' [Z:/demo/demo.srcs/sources_1/new/main.v:72]
-INFO: [Synth 8-226] default block is never used [Z:/demo/demo.srcs/sources_1/new/main.v:76]
-INFO: [Synth 8-256] done synthesizing module 'm_7segled' (3#1) [Z:/demo/demo.srcs/sources_1/new/main.v:72]
-INFO: [Synth 8-256] done synthesizing module 'm_7segcon' (4#1) [Z:/demo/demo.srcs/sources_1/new/main.v:100]
-WARNING: [Synth 8-689] width (33) of port connection 'w_din' does not match port width (32) of module 'm_7segcon' [Z:/demo/demo.srcs/sources_1/new/main.v:36]
-INFO: [Synth 8-256] done synthesizing module 'm_main' (5#1) [Z:/demo/demo.srcs/sources_1/new/main.v:8]
+	Parameter SCREEN_WIDTH bound to: 800 - type: integer 
+	Parameter SCREEN_HEIGHT bound to: 600 - type: integer 
+	Parameter VRAM_DEPTH bound to: 480000 - type: integer 
+	Parameter VRAM_A_WIDTH bound to: 19 - type: integer 
+	Parameter VRAM_D_WIDTH bound to: 6 - type: integer 
+	Parameter HA_STA bound to: 256 - type: integer 
+	Parameter VA_STA bound to: 60 - type: integer 
+	Parameter VA_END bound to: 540 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'game_palette.mem' is read successfully [Z:/demo/demo.srcs/sources_1/new/main.v:69]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [Z:/demo/demo.runs/synth_1/.Xil/Vivado-9108-DESKTOP-5KRUO71/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [Z:/demo/demo.runs/synth_1/.Xil/Vivado-9108-DESKTOP-5KRUO71/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'sram' [Z:/demo/demo.srcs/sources_1/new/main.v:86]
+	Parameter ADDR_WIDTH bound to: 19 - type: integer 
+	Parameter DATA_WIDTH bound to: 6 - type: integer 
+	Parameter DEPTH bound to: 480000 - type: integer 
+	Parameter MEMFILE bound to: game.mem - type: string 
+INFO: [Synth 8-3876] $readmem data file 'game.mem' is read successfully [Z:/demo/demo.srcs/sources_1/new/main.v:100]
+INFO: [Synth 8-256] done synthesizing module 'sram' (2#1) [Z:/demo/demo.srcs/sources_1/new/main.v:86]
+WARNING: [Synth 8-3848] Net r_an in module/entity m_main does not have driver. [Z:/demo/demo.srcs/sources_1/new/main.v:24]
+WARNING: [Synth 8-3848] Net r_sg in module/entity m_main does not have driver. [Z:/demo/demo.srcs/sources_1/new/main.v:25]
+INFO: [Synth 8-256] done synthesizing module 'm_main' (3#1) [Z:/demo/demo.srcs/sources_1/new/main.v:8]
 WARNING: [Synth 8-3917] design m_main has port w_led[15] driven by constant 0
 WARNING: [Synth 8-3917] design m_main has port w_led[14] driven by constant 0
 WARNING: [Synth 8-3917] design m_main has port w_led[13] driven by constant 0
 WARNING: [Synth 8-3917] design m_main has port w_led[12] driven by constant 0
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[7]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[6]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[5]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[4]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[3]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[2]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[1]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[0]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[6]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[5]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[4]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[3]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[2]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[1]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 343.953 ; gain = 134.027
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:19 . Memory (MB): peak = 422.449 ; gain = 212.270
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -48,16 +71,16 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 343.953 ; gain = 134.027
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 422.449 ; gain = 212.270
 ---------------------------------------------------------------------------------
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'clk_wiz' [Z:/demo/demo.srcs/sources_1/new/main.v:22]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'clk_wiz' [Z:/demo/demo.srcs/sources_1/new/main.v:29]
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [Z:/demo/demo.runs/synth_1/.Xil/Vivado-3316-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
-Finished Parsing XDC File [Z:/demo/demo.runs/synth_1/.Xil/Vivado-3316-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
+Parsing XDC File [Z:/demo/demo.runs/synth_1/.Xil/Vivado-9108-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
+Finished Parsing XDC File [Z:/demo/demo.runs/synth_1/.Xil/Vivado-9108-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
 Parsing XDC File [Z:/demo/demo.srcs/constrs_1/new/main.xdc]
 Finished Parsing XDC File [Z:/demo/demo.srcs/constrs_1/new/main.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [Z:/demo/demo.srcs/constrs_1/new/main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/m_main_propImpl.xdc].
@@ -69,30 +92,28 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 657.344 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 698.980 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:28 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:34 . Memory (MB): peak = 698.980 ; gain = 488.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:28 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:34 . Memory (MB): peak = 698.980 ; gain = 488.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for w_clk. (constraint file  Z:/demo/demo.runs/synth_1/.Xil/Vivado-3316-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for w_clk. (constraint file  Z:/demo/demo.runs/synth_1/.Xil/Vivado-3316-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for w_clk. (constraint file  Z:/demo/demo.runs/synth_1/.Xil/Vivado-9108-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for w_clk. (constraint file  Z:/demo/demo.runs/synth_1/.Xil/Vivado-9108-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for clk_wiz. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:28 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:34 . Memory (MB): peak = 698.980 ; gain = 488.801
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5545] ROM "r_digit" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "rand_done" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:28 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:35 . Memory (MB): peak = 698.980 ; gain = 488.801
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -105,26 +126,19 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     11 Bit       Adders := 2     
-	   2 Input      3 Bit       Adders := 1     
-+---XORs : 
-	   4 Input      1 Bit         XORs := 1     
+	   2 Input     11 Bit       Adders := 4     
 +---Registers : 
-	               32 Bit    Registers := 3     
 	               12 Bit    Registers := 1     
-	               11 Bit    Registers := 2     
-	                8 Bit    Registers := 2     
-	                7 Bit    Registers := 2     
-	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
+	               11 Bit    Registers := 4     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
 	                1 Bit    Registers := 2     
++---RAMs : 
+	            2812K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input     11 Bit        Muxes := 2     
-	   8 Input      8 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 3     
 	   2 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -135,39 +149,22 @@ Hierarchical RTL Component report
 Module m_main 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     11 Bit       Adders := 2     
+	   2 Input     11 Bit       Adders := 4     
 +---Registers : 
-	               32 Bit    Registers := 1     
 	               12 Bit    Registers := 1     
-	               11 Bit    Registers := 2     
-	                8 Bit    Registers := 1     
-	                7 Bit    Registers := 1     
+	               11 Bit    Registers := 4     
+	                4 Bit    Registers := 3     
 	                1 Bit    Registers := 2     
 +---Muxes : 
 	   2 Input     11 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 3     
 	   2 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 1     
-Module m_lfsr 
+Module sram 
 Detailed RTL Component Info : 
-+---XORs : 
-	   4 Input      1 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 1     
-Module m_7segcon 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      3 Bit       Adders := 1     
-+---Registers : 
-	               32 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                7 Bit    Registers := 1     
-	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
-+---Muxes : 
-	   8 Input      8 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
+	                6 Bit    Registers := 1     
++---RAMs : 
+	            2812K Bit         RAMs := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -183,14 +180,117 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5545] ROM "m_7segcon/r_digit" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "rand_done" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+DSP Report: Generating DSP address_reg, operation Mode is: C'+A*(B:0x320).
+DSP Report: register x_reg is absorbed into DSP address_reg.
+DSP Report: register address_reg is absorbed into DSP address_reg.
+DSP Report: operator address0 is absorbed into DSP address_reg.
+DSP Report: operator address1 is absorbed into DSP address_reg.
 WARNING: [Synth 8-3917] design m_main has port w_led[15] driven by constant 0
 WARNING: [Synth 8-3917] design m_main has port w_led[14] driven by constant 0
 WARNING: [Synth 8-3917] design m_main has port w_led[13] driven by constant 0
 WARNING: [Synth 8-3917] design m_main has port w_led[12] driven by constant 0
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[7]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[6]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[5]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[4]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[3]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[2]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[1]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_an[0]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[6]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[5]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[4]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[3]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[2]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[1]
+WARNING: [Synth 8-3331] design m_main has unconnected port r_sg[0]
+Removed BRAM instance from module m_main due to constant propagation
+Removed BRAM instance from module m_main due to constant propagation
+Removed BRAM instance from module m_main due to constant propagation
+Removed BRAM instance from module m_main due to constant propagation
+Removed BRAM instance from module m_main due to constant propagation
+Removed BRAM instance from module m_main due to constant propagation
+Removed 6 RAM instances from module m_main due to constant propagation
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__46' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__45'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__40' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__39'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__34' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__39'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__28' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__27'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__22' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__39'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__16' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__39'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__10' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__27'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__4' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__3'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__45' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__44'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__39' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__33' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__27' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__26'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__21' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__15' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__9' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__26'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__3' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__2'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__44' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__43'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__38' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__37'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__32' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__37'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__26' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__25'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__20' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__37'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__14' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__37'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__8' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__25'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__2' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__1'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__43' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__42'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__37' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__36'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__31' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__36'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__25' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__24'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__19' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__36'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__13' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__36'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__7' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__24'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__1' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__0'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__42' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__41'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__36' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__35'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__30' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__35'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__24' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__23'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__18' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__35'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__12' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__35'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__6' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__23'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__0' (FDE) to 'i_0/vram/memory_array_reg_mux_sel'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__35' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__29'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__29' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__17'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__23' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__5'
+INFO: [Synth 8-3886] merging instance 'i_0/vram/memory_array_reg_mux_sel__17' (FDE) to 'i_0/vram/memory_array_reg_mux_sel__11'
+WARNING: [Synth 8-3332] Sequential element (vram/memory_array_reg_mux_sel__41) is unused and will be removed from module m_main.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:29 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:37 . Memory (MB): peak = 698.980 ; gain = 488.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|m_main      | p_0_out    | 64x12         | LUT            | 
+|m_main      | p_0_out    | 64x12         | LUT            | 
++------------+------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping  Report (see note below)
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|sram        | memory_array_reg | 512 K x 6              | W | R |                        |   |   | Port A           | 0      | 90     | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|m_main      | C'+A*(B:0x320) | 11     | 10     | 11     | -      | 19     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -207,10 +307,10 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_wiz/clk_out1' to pin 'clk_wiz/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 853.652 ; gain = 643.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:52 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -221,8 +321,50 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_1_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_1_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_1_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_1_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_1_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_1_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_3_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_3_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_3_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_3_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_3_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_3_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_5_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_5_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_5_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_5_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_5_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_5_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_7_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_7_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_7_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_7_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_7_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_7_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_9_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_9_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_9_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_9_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_9_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_9_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_11_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_11_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_11_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_11_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_11_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_11_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_13_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_13_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_13_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_13_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_13_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram/memory_array_reg_13_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:54 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -246,7 +388,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:56 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -259,7 +401,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -271,25 +413,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -303,40 +445,90 @@ Report BlackBoxes:
 +------+--------------+----------+
 
 Report Cell Usage: 
-+------+----------+------+
-|      |Cell      |Count |
-+------+----------+------+
-|1     |clk_wiz_0 |     1|
-|2     |CARRY4    |    16|
-|3     |LUT1      |    65|
-|4     |LUT2      |    13|
-|5     |LUT3      |     7|
-|6     |LUT4      |    25|
-|7     |LUT5      |    23|
-|8     |LUT6      |    48|
-|9     |MUXF7     |     4|
-|10    |FDRE      |   227|
-|11    |FDSE      |     6|
-|12    |IBUF      |    14|
-|13    |OBUF      |    45|
-+------+----------+------+
++------+------------+------+
+|      |Cell        |Count |
++------+------------+------+
+|1     |clk_wiz_0   |     1|
+|2     |DSP48E1     |     1|
+|3     |LUT1        |     5|
+|4     |LUT2        |     6|
+|5     |LUT3        |    18|
+|6     |LUT4        |    10|
+|7     |LUT5        |    15|
+|8     |LUT6        |    32|
+|9     |MUXF7       |     6|
+|10    |RAMB36E1    |     1|
+|11    |RAMB36E1_1  |     1|
+|12    |RAMB36E1_10 |     1|
+|13    |RAMB36E1_11 |     1|
+|14    |RAMB36E1_12 |     1|
+|15    |RAMB36E1_13 |     1|
+|16    |RAMB36E1_14 |     1|
+|17    |RAMB36E1_15 |     1|
+|18    |RAMB36E1_16 |     1|
+|19    |RAMB36E1_17 |     1|
+|20    |RAMB36E1_18 |     1|
+|21    |RAMB36E1_19 |     1|
+|22    |RAMB36E1_2  |     1|
+|23    |RAMB36E1_20 |     1|
+|24    |RAMB36E1_21 |     1|
+|25    |RAMB36E1_22 |     1|
+|26    |RAMB36E1_23 |     1|
+|27    |RAMB36E1_24 |     1|
+|28    |RAMB36E1_25 |     1|
+|29    |RAMB36E1_26 |     1|
+|30    |RAMB36E1_27 |     1|
+|31    |RAMB36E1_28 |     1|
+|32    |RAMB36E1_29 |     1|
+|33    |RAMB36E1_3  |     1|
+|34    |RAMB36E1_30 |     1|
+|35    |RAMB36E1_31 |     1|
+|36    |RAMB36E1_32 |     1|
+|37    |RAMB36E1_33 |     1|
+|38    |RAMB36E1_34 |     1|
+|39    |RAMB36E1_35 |     1|
+|40    |RAMB36E1_36 |     1|
+|41    |RAMB36E1_37 |     1|
+|42    |RAMB36E1_38 |     1|
+|43    |RAMB36E1_39 |     1|
+|44    |RAMB36E1_4  |     1|
+|45    |RAMB36E1_40 |     1|
+|46    |RAMB36E1_41 |     1|
+|47    |RAMB36E1_42 |     1|
+|48    |RAMB36E1_43 |     1|
+|49    |RAMB36E1_44 |     1|
+|50    |RAMB36E1_45 |     1|
+|51    |RAMB36E1_46 |     1|
+|52    |RAMB36E1_47 |     1|
+|53    |RAMB36E1_48 |    18|
+|54    |RAMB36E1_49 |    18|
+|55    |RAMB36E1_5  |     1|
+|56    |RAMB36E1_6  |     1|
+|57    |RAMB36E1_7  |     1|
+|58    |RAMB36E1_8  |     1|
+|59    |RAMB36E1_9  |     1|
+|60    |FDRE        |    52|
+|61    |FDSE        |    10|
+|62    |IBUF        |    14|
+|63    |OBUF        |    30|
+|64    |OBUFT       |    15|
++------+------------+------+
 
 Report Instance Areas: 
-+------+-----------------+----------+------+
-|      |Instance         |Module    |Cells |
-+------+-----------------+----------+------+
-|1     |top              |          |   495|
-|2     |  m_7segcon      |m_7segcon |   171|
-|3     |  nolabel_line31 |m_lfsr    |    33|
-+------+-----------------+----------+------+
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   300|
+|2     |  vram   |sram   |   124|
++------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 657.344 ; gain = 447.418
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 887.629 ; gain = 677.449
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 657.344 ; gain = 111.219
-Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:41 . Memory (MB): peak = 657.344 ; gain = 447.418
+Synthesis finished with 0 errors, 0 critical warnings and 20 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 887.629 ; gain = 378.617
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 887.629 ; gain = 677.449
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 99 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -344,9 +536,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-30 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+111 Infos, 42 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:31 . Memory (MB): peak = 657.344 ; gain = 431.332
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 887.629 ; gain = 661.480
 INFO: [Common 17-1381] The checkpoint 'Z:/demo/demo.runs/synth_1/m_main.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 657.344 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 05 16:53:39 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 887.629 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 06 17:25:21 2018...

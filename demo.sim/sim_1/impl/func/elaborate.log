@@ -1,0 +1,45 @@
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2016.4/bin/unwrapped/win64.o/xelab.exe -wto 5537d16a313b4a8882777a873af9c0b5 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L secureip --snapshot m_main_func_impl xil_defaultlib.m_main xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ACASCREG=0,ALUMODEREG=0,...
+Compiling module unisims_ver.BUFG
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module xil_defaultlib.clk_wiz_0clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module unisims_ver.sffsrce_fdre
+Compiling module unisims_ver.FDRE
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling module unisims_ver.x_lut3_mux4
+Compiling module unisims_ver.x_lut3_mux4_reduced_0
+Compiling module unisims_ver.LUT3
+Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.x_lut2_mux4
+Compiling module unisims_ver.LUT2
+Compiling module unisims_ver.LUT4
+Compiling module unisims_ver.LUT5
+Compiling module unisims_ver.OBUF
+Compiling module unisims_ver.sffsrce_fdse
+Compiling module unisims_ver.FDSE
+Compiling module unisims_ver.OBUFT
+Compiling module unisims_ver.RB36_INTERNAL_VLOG(DOA_REG=0,DOB...
+Compiling module unisims_ver.RAMB36E1(INIT_00=256'b0111010101...
+Compiling module unisims_ver.RB36_INTERNAL_VLOG(DOA_REG=0,DOB...
+Compiling module unisims_ver.RAMB36E1(INIT_00=256'b0111010100...
+Compiling module unisims_ver.RB36_INTERNAL_VLOG(DOA_REG=0,DOB...
+Compiling module unisims_ver.RAMB36E1(RAM_EXTENSION_A="LOWER"...
+Compiling module unisims_ver.RB36_INTERNAL_VLOG(DOA_REG=0,DOB...
+Compiling module unisims_ver.RAMB36E1(RAM_EXTENSION_A="UPPER"...
+Compiling module unisims_ver.ffsrce_fdce
+Compiling module unisims_ver.FDCE
+Compiling module xil_defaultlib.sram
+Compiling module xil_defaultlib.m_main
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot m_main_func_impl
