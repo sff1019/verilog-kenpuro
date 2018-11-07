@@ -21,10 +21,15 @@ set_property ip_cache_permissions {read write} [current_project]
 read_mem {
   Z:/game_palette.mem
   Z:/game.mem
+  Z:/green-ball-th.mem
+  Z:/green-ball-th_palette.mem
+  Z:/fighter_palette.mem
+  Z:/fighter.mem
 }
 read_verilog -library xil_defaultlib {
   Z:/demo/demo.srcs/sources_1/new/main.v
   Z:/demo/demo.srcs/sources_1/new/lfsr.v
+  Z:/demo/demo.srcs/sources_1/new/bram.v
 }
 read_ip -quiet Z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all z:/demo/demo.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_board.xdc]

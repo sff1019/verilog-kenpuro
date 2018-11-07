@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
-| Date         : Tue Nov 06 17:26:21 2018
+| Date         : Wed Nov 07 15:03:07 2018
 | Host         : DESKTOP-5KRUO71 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file m_main_control_sets_placed.rpt
 | Design       : m_main
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     4 |
-| Unused register locations in slices containing registers |    19 |
+| Number of unique control sets                            |     5 |
+| Unused register locations in slices containing registers |    24 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              34 |           16 |
+| No           | No                    | No                     |              26 |           10 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              24 |            8 |
+| No           | Yes                   | No                     |              35 |           14 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              11 |            5 |
+| Yes          | Yes                   | No                     |              11 |            4 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -48,17 +48,18 @@ Table of Contents
 +------------------------+------------------+------------------+------------------+----------------+
 |      Clock Signal      |   Enable Signal  | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +------------------------+------------------+------------------+------------------+----------------+
-|  clk_wiz/inst/clk_out1 |                  | y[10]_i_1_n_0    |                4 |             11 |
-|  clk_wiz/inst/clk_out1 | vcnt[10]_i_1_n_0 | w_rst            |                5 |             11 |
-|  clk_wiz/inst/clk_out1 |                  | w_rst            |                4 |             13 |
-|  clk_wiz/inst/clk_out1 |                  |                  |               16 |             34 |
+|  clk_wiz/inst/clk_out1 |                  | x[10]_i_1_n_0    |                3 |             11 |
+|  clk_wiz/inst/clk_out1 |                  | y[10]_i_1_n_0    |                8 |             11 |
+|  clk_wiz/inst/clk_out1 | vcnt[10]_i_1_n_0 | w_rst            |                4 |             11 |
+|  clk_wiz/inst/clk_out1 |                  | w_rst            |                3 |             13 |
+|  clk_wiz/inst/clk_out1 |                  |                  |               10 |             26 |
 +------------------------+------------------+------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 11     |                     2 |
+| 11     |                     3 |
 | 13     |                     1 |
 | 16+    |                     1 |
 +--------+-----------------------+
