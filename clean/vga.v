@@ -25,7 +25,7 @@ module vga_sync
   localparam HS_END = HS_STA + HR_SYNC; // horizontal sync end
   localparam HR_MAX = HA_STA + SCREEN_WIDTH; // Max horizontal
 
-  localparam VT_MAX = VT_FNT_PORCH + VT_SYNC + VT_BK_PORCH;
+  localparam VT_MAX = VT_FNT_PORCH + VT_SYNC + VT_BK_PORCH + SCREEN_HEIGHT;
   localparam VS_STA = SCREEN_HEIGHT + VT_FNT_PORCH;
   localparam VS_END = VS_STA + VT_SYNC;
   localparam VA_STA = 60;

@@ -33,6 +33,7 @@ module draw_entity #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, ENTITYSIZE=32, MEMFIL
   input wire [10:0] current_y,
   input wire [10:0] pos_x,
   input wire [10:0] pos_y,
+  input wire  [DATA_WIDTH-1:0] i_data,
   output reg [DATA_WIDTH-1:0] o_data
   );
 
@@ -43,12 +44,12 @@ module draw_entity #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, ENTITYSIZE=32, MEMFIL
         .ADDR_WIDTH(ADDR_WIDTH),
         .DATA_WIDTH(DATA_WIDTH),
         .DEPTH(ENTITYSIZE*ENTITYSIZE),
-        .MEMFILE("fighter.mem"))
+        .MEMFILE(MEMFILE))
         vram_read (
         .i_addr(address),
         .clk(clk),
-        .i_write(0),  // we're always reading
-        .i_data(0),
+        .i_write(i_write),  // we're always reading
+        .i_data(i_data),
         .o_data(data)
     );
 

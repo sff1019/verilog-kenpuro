@@ -72,15 +72,16 @@ module m_main (
         .o_data(w_vram_data_out)
     );
 
-  wire [VRAM_D_WIDTH-1:0] w_entity_data_out;
-  reg [10:0] r_pos_x=400, r_pos_y=300;  // current pixel x position: 10-bit value: 0-1023
+  wire [VRAM_D_WIDTH-1:0] w_entity_data_in, w_entity_data_out;
+  assign w_entity_data_in = 12'heee;
+  reg [10:0] r_pos_x=0, r_pos_y=0;  // current pixel x position: 10-bit value: 0-1023
   wire w_draw;
 
   draw_entity #(
     .ADDR_WIDTH(VRAM_A_WIDTH),
     .DATA_WIDTH(VRAM_D_WIDTH),
     .ENTITYSIZE(32),
-    .MEMFILE("fighter.mem")
+    .MEMFILE("")
     )
     entity (
       .clk(clk),
@@ -89,6 +90,7 @@ module m_main (
       .current_y(r_draw_y),
       .pos_x(r_pos_x),
       .pos_y(r_pos_y),
+      .i_data(w_entity_data_in),
       .o_data(w_entity_data_out)
     );
 
@@ -118,9 +120,9 @@ module m_main (
       else r_vram_write <= 0;
 
       if (w_active)
-        r_rgb <= r_palette[w_vram_data_out];
+        r_rgb <= w_vram_data_out;
       else
-        r_rgb <= 0;
+        r_rgb <= 12'heee;
 
       vga_red <= r_rgb[11:8];
       vga_green <= r_rgb[7:4];
