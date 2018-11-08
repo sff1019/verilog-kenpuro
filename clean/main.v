@@ -8,8 +8,8 @@ module m_main (
   input wire [4:0] w_btn,
   input wire [11:0] sw,
   output wire[15:0] w_led,
-  output wire hsync,
-  output wire vsync,
+  output reg hsync,
+  output reg vsync,
   output reg [3:0] vga_red,
   output reg [3:0] vga_green,
   output reg [3:0] vga_blue,
@@ -27,7 +27,7 @@ module m_main (
 
   wire clk, w_locked;
   wire w_rst = ~w_locked;
-  wire [10:0] r_draw_x, r_draw_y;
+  reg [10:0] r_draw_x, r_draw_y;
   reg [11:0] r_rgb;
 
 //  reg w_clk = 0;
@@ -41,18 +41,18 @@ module m_main (
   assign w_led = w_btn;
 
   reg [10:0] hcnt, vcnt;
-  wire w_active;
+  reg w_active;
 
-  vga_sync (clk, w_rst, r_draw_x, r_draw_y, hsync, vsync, w_active);
-  // always @(posedge clk) begin
-  // hcnt   <= (w_rst) ? 0 : (hcnt==1055) ? 0 : hcnt + 1;
-  // vcnt   <= (w_rst) ? 0 : (hcnt!=1055) ? vcnt : (vcnt==627) ? 0 : vcnt + 1;
-  // hsync <= (w_rst) ? 1 : (hcnt>=840 && hcnt<=967) ? 0 : 1;
-  // vsync <= (w_rst) ? 1 : (vcnt>=601 && vcnt<=604) ? 0 : 1;
-  // r_active <= (w_rst) ? 0 : (hcnt < SCREEN_WIDTH && vcnt < SCREEN_HEIGHT);
-  // r_draw_x <= (hcnt < SCREEN_WIDTH) ? hcnt : 0;
-  // r_draw_y <= (vcnt < SCREEN_HEIGHT) ? vcnt : 0;
-  // end
+//  vga_sync (clk, w_rst, r_draw_x, r_draw_y, hsync, vsync, w_active);
+   always @(posedge clk) begin
+   hcnt   <= (w_rst) ? 0 : (hcnt==1055) ? 0 : hcnt + 1;
+   vcnt   <= (w_rst) ? 0 : (hcnt!=1055) ? vcnt : (vcnt==627) ? 0 : vcnt + 1;
+   hsync <= (w_rst) ? 1 : (hcnt>=840 && hcnt<=967) ? 0 : 1;
+   vsync <= (w_rst) ? 1 : (vcnt>=601 && vcnt<=604) ? 0 : 1;
+   w_active <= (w_rst) ? 0 : (hcnt < SCREEN_WIDTH && vcnt < SCREEN_HEIGHT);
+   r_draw_x <= (hcnt < SCREEN_WIDTH) ? hcnt : 0;
+   r_draw_y <= (vcnt < SCREEN_HEIGHT) ? vcnt : 0;
+   end
 
   reg [VRAM_A_WIDTH-1:0] r_address;
   reg [VRAM_D_WIDTH-1:0] r_vram_data_in;
@@ -98,14 +98,14 @@ module m_main (
           $readmemh("fighter_palette.mem", r_palette);  // bitmap palette to load
    end
 
-    reg [31:0] r_cnt=0;
+    reg [19:0] r_cnt=0;
    always @(posedge clk) begin
-     r_cnt <= (r_cnt>=(2-1)) ? 0 : r_cnt + 1;
+     r_cnt <= (r_cnt>=(200000-1)) ? 0 : r_cnt + 1;;
      if (r_cnt == 0) begin
-         if(w_btn[0] && (r_pos_x != 32)) r_pos_x <= r_pos_x - 1;
-         if(w_btn[1] && (r_pos_x != SCREEN_HEIGHT - 32)) r_pos_x <= r_pos_x + 1;
-         if(w_btn[2] && (r_pos_y != 32)) r_pos_y <= r_pos_y - 1;
-         if(w_btn[3] && (r_pos_y != SCREEN_WIDTH-32)) r_pos_y <= r_pos_y + 1;
+         if(w_btn[0] && (r_pos_x > 32)) r_pos_x <= r_pos_x - 1;
+         if(w_btn[1] && (r_pos_x < SCREEN_HEIGHT - 32)) r_pos_x <= r_pos_x + 1;
+         if(w_btn[2] && (r_pos_y > 32)) r_pos_y <= r_pos_y - 1;
+         if(w_btn[3] && (r_pos_y < SCREEN_WIDTH-32)) r_pos_y <= r_pos_y + 1;
     end
       if(r_pos_x!=SCREEN_HEIGHT)
         r_address <= r_draw_y * SCREEN_WIDTH + r_draw_x;
