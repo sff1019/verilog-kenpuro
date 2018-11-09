@@ -33,7 +33,7 @@ module m_main (
 // reg w_clk = 0;
 // initial forever #1 w_clk = ~w_clk;
 
-  clk_wiz_0 clk_wiz (clk, 0, w_locked, w_clk); // 100MHz -> 40MHz
+  clk_wiz_0 clk_wiz (clk, 1'b0, w_locked, w_clk); // 100MHz -> 40MHz
 
   //initial forever #1 CLK100MHZ = ~CLK100MHZ;
 
@@ -72,50 +72,87 @@ module m_main (
         .o_data(w_vram_data_out)
     );
 
-  wire [VRAM_D_WIDTH-1:0] w_entity_data_in, w_entity_data_out;
-//  assign w_entity_data_in = 12'heee;
-  reg [10:0] r_pos_x=400, r_pos_y=300;  // current pixel x position: 10-bit value: 0-1023
+  wire [VRAM_D_WIDTH-1:0] w_target_data_in, w_frame_data_in, w_frame_data_out, w_shape_data_out;
+  assign w_target_data_in = 4'b0101;
+  assign w_frame_data_in = 4'b1001;
+  reg [10:0] r_ctr_x=400, r_ctr_y=300;  // current pixel x position: 10-bit value: 0-1023
 //  reg [10:0] r_pos_x=0, r_pos_y=0;  // current pixel x position: 10-bit value: 0-1023
-  wire w_draw;
-
+  wire w_frame_draw, w_shape_draw;
+  
+   m_draw_rectangle #(
+     .ADDR_WIDTH(VRAM_A_WIDTH),
+     .DATA_WIDTH(VRAM_D_WIDTH),
+     .SHAPE_HF_WIDTH(100),
+     .SHAPE_HF_HEIGHT(75)
+     )
+     frame (
+       .clk(clk),
+       .i_write(w_frame_draw),
+       .current_x(r_draw_x),
+       .current_y(r_draw_y),
+       .pos_x(r_ctr_x),
+       .pos_y(r_ctr_y),
+       .i_data(w_frame_data_in),
+       .o_data(w_frame_data_out)
+     );
+     
   m_draw_rectangle #(
     .ADDR_WIDTH(VRAM_A_WIDTH),
     .DATA_WIDTH(VRAM_D_WIDTH),
-    .SHAPE_HF_WIDTH(30),
+    .SHAPE_HF_WIDTH(40),
     .SHAPE_HF_HEIGHT(30)
     )
-    shape (
+    target (
       .clk(clk),
-      .i_write(w_draw),
+      .i_write(w_shape_draw),
       .current_x(r_draw_x),
       .current_y(r_draw_y),
-      .pos_x(r_pos_x),
-      .pos_y(r_pos_y),
-//      .i_data(w_entity_data_in),
-      .o_data(w_entity_data_out)
+      .pos_x(r_ctr_x),
+      .pos_y(r_ctr_y),
+      .i_data(w_target_data_in),
+      .o_data(w_shape_data_out)
     );
+//  m_draw_frame #(
+//    .ADDR_WIDTH(VRAM_A_WIDTH),
+//    .DATA_WIDTH(VRAM_D_WIDTH),
+//    .DEPTH(256)
+//    )
+//    frame (
+//      .clk(w_clk),
+//      .i_write(w_draw),
+//      .pos_x(r_draw_x),
+//      .pos_y(r_draw_y),
+//      .ctr_x(r_ctr_x),
+//      .ctr_y(r_ctr_y),
+//      .inr_hf_wth(30),
+//      .inr_hf_hgt(30),
+//      .otr_hf_wth(0),
+//      .otr_hf_hgt(0),
+//      .i_data(w_entity_data_in),
+//     .o_data(w_entity_data_out)
+//      );
 
    reg [19:0] r_cnt=0;
    always @(posedge clk) begin
      r_cnt <= (r_cnt>=(200000-1)) ? 0 : r_cnt + 1;;
      if (r_cnt == 0) begin
-         if(w_btn[0] && (r_pos_x > 32)) r_pos_x <= r_pos_x - 1;
-         if(w_btn[1] && (r_pos_x < SCREEN_HEIGHT - 32)) r_pos_x <= r_pos_x + 1;
-         if(w_btn[2] && (r_pos_y > 32)) r_pos_y <= r_pos_y - 1;
-         if(w_btn[3] && (r_pos_y < SCREEN_WIDTH-32)) r_pos_y <= r_pos_y + 1;
+         if(w_btn[0] && (r_ctr_x > 32)) r_ctr_x <= r_ctr_x - 1;
+         if(w_btn[1] && (r_ctr_x < SCREEN_HEIGHT - 32)) r_ctr_x <= r_ctr_x + 1;
+         if(w_btn[2] && (r_ctr_y > 32)) r_ctr_y <= r_ctr_y - 1;
+         if(w_btn[3] && (r_ctr_y < SCREEN_WIDTH-32)) r_ctr_y <= r_ctr_y + 1;
     end
-      if(r_pos_x!=SCREEN_HEIGHT)
+      if(r_ctr_x!=SCREEN_HEIGHT)
         r_address <= r_draw_y * SCREEN_WIDTH + r_draw_x;
 
-      if (w_draw)
+      if (w_frame_draw || w_shape_draw)
       begin
         r_vram_write <= 1;
-        r_vram_data_in <= w_entity_data_out;
+        r_vram_data_in <= (w_shape_draw) ? w_shape_data_out : w_frame_data_out;
       end
       else r_vram_write <= 0;
 
 //      r_rgb <= (w_active && w_draw) ? w_vram_data_out : (w_active) ?  12'b111111111111 : 0;
-         r_rgb <= (w_active && w_draw) ? {{2{w_vram_data_out[2], w_vram_data_out[3]}},
+         r_rgb <= (w_active && (w_shape_draw || w_frame_draw)) ? {{2{w_vram_data_out[2], w_vram_data_out[3]}},
                    {2{w_vram_data_out[1], w_vram_data_out[3]}},
                    {2{w_vram_data_out[0], w_vram_data_out[3]}}} : (w_active) ? 12'b111111111111 : 0;
       //   r_rgb <= w_vram_data_out;
