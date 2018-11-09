@@ -23,15 +23,15 @@ module m_main (
   localparam SCREEN_HEIGHT = 600;
   localparam VRAM_DEPTH = SCREEN_WIDTH * SCREEN_HEIGHT;
   localparam VRAM_A_WIDTH = 19;  // 2^19 > 800*600
-  localparam VRAM_D_WIDTH = 8;   // colour bits per pixel
+  localparam VRAM_D_WIDTH = 4;   // colour bits per pixel
 
   wire clk, w_locked;
   wire w_rst = ~w_locked;
   reg [10:0] r_draw_x, r_draw_y;
   reg [11:0] r_rgb;
 
-//  reg w_clk = 0;
-//  initial forever #1 w_clk = ~w_clk;
+// reg w_clk = 0;
+// initial forever #1 w_clk = ~w_clk;
 
   clk_wiz_0 clk_wiz (clk, 0, w_locked, w_clk); // 100MHz -> 40MHz
 
@@ -73,34 +73,29 @@ module m_main (
     );
 
   wire [VRAM_D_WIDTH-1:0] w_entity_data_in, w_entity_data_out;
-  assign w_entity_data_in = 12'heee;
-  reg [10:0] r_pos_x=0, r_pos_y=0;  // current pixel x position: 10-bit value: 0-1023
+//  assign w_entity_data_in = 12'heee;
+  reg [10:0] r_pos_x=400, r_pos_y=300;  // current pixel x position: 10-bit value: 0-1023
+//  reg [10:0] r_pos_x=0, r_pos_y=0;  // current pixel x position: 10-bit value: 0-1023
   wire w_draw;
 
-  draw_entity #(
+  m_draw_rectangle #(
     .ADDR_WIDTH(VRAM_A_WIDTH),
     .DATA_WIDTH(VRAM_D_WIDTH),
-    .ENTITYSIZE(32),
-    .MEMFILE("")
+    .SHAPE_HF_WIDTH(30),
+    .SHAPE_HF_HEIGHT(30)
     )
-    entity (
+    shape (
       .clk(clk),
       .i_write(w_draw),
       .current_x(r_draw_x),
       .current_y(r_draw_y),
       .pos_x(r_pos_x),
       .pos_y(r_pos_y),
-      .i_data(w_entity_data_in),
+//      .i_data(w_entity_data_in),
       .o_data(w_entity_data_out)
     );
 
-  reg [11:0] r_palette [0:255];  // 64 x 12-bit colour palette entries
-  initial begin
-          $display("Loading palette.");
-          $readmemh("fighter_palette.mem", r_palette);  // bitmap palette to load
-   end
-
-    reg [19:0] r_cnt=0;
+   reg [19:0] r_cnt=0;
    always @(posedge clk) begin
      r_cnt <= (r_cnt>=(200000-1)) ? 0 : r_cnt + 1;;
      if (r_cnt == 0) begin
@@ -119,10 +114,13 @@ module m_main (
       end
       else r_vram_write <= 0;
 
-      if (w_active)
-        r_rgb <= w_vram_data_out;
-      else
-        r_rgb <= 12'heee;
+//      r_rgb <= (w_active && w_draw) ? w_vram_data_out : (w_active) ?  12'b111111111111 : 0;
+         r_rgb <= (w_active && w_draw) ? {{2{w_vram_data_out[2], w_vram_data_out[3]}},
+                   {2{w_vram_data_out[1], w_vram_data_out[3]}},
+                   {2{w_vram_data_out[0], w_vram_data_out[3]}}} : (w_active) ? 12'b111111111111 : 0;
+      //   r_rgb <= w_vram_data_out;
+      // else
+      //   r_rgb <= 0;
 
       vga_red <= r_rgb[11:8];
       vga_green <= r_rgb[7:4];

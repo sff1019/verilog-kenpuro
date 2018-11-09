@@ -19,14 +19,14 @@ module sram #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, DEPTH=256, MEMFILE="") (
 
     always @ (posedge clk)
     begin
-        if(i_write) begin
+       if(i_write) begin
             memory_array[i_addr] <= i_data;
-        end
+       end
         o_data <= memory_array[i_addr];
     end
 endmodule
 
-module draw_entity #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, ENTITYSIZE=32, MEMFILE="") (
+module draw_entity #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, SHAPE_WIDTH=32, SHAPE_HEIGHT=32, MEMFILE="") (
   input wire clk,
   input wire i_write,
   input wire [10:0] current_x,
@@ -43,7 +43,7 @@ module draw_entity #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, ENTITYSIZE=32, MEMFIL
   sram #(
         .ADDR_WIDTH(ADDR_WIDTH),
         .DATA_WIDTH(DATA_WIDTH),
-        .DEPTH(ENTITYSIZE*ENTITYSIZE),
+        .DEPTH(SHAPE_WIDTH*SHAPE_HEIGHT),
         .MEMFILE(MEMFILE))
         vram_read (
         .i_addr(address),
@@ -53,9 +53,8 @@ module draw_entity #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, ENTITYSIZE=32, MEMFIL
         .o_data(data)
     );
 
-
-  assign i_write = (((pos_x <= current_x) && (current_x < pos_x + ENTITYSIZE)) &&
-                    ((pos_y <= current_y) && (current_y < pos_y + ENTITYSIZE)));
-  assign address = (i_write) ? ((current_y - pos_y) * ENTITYSIZE + (current_x - pos_x)) : 0;
+  assign i_write = (((pos_x <= current_x) && (current_x < pos_x + SHAPE_WIDTH)) &&
+                    ((pos_y <= current_y) && (current_y < pos_y + SHAPE_HEIGHT)));
+  assign address = (i_write) ? ((current_y - pos_y) * SHAPE_HEIGHT + (current_x - pos_x)) : 0;
   always @(posedge clk) o_data <= data;
 endmodule
