@@ -3,9 +3,7 @@ module m_draw_rectangle #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, SHAPE_HF_WIDTH=3
   input wire i_write,
   input wire [10:0] current_x,
   input wire [10:0] current_y,
-  input wire [10:0] pos_x,
-  input wire [10:0] pos_y,
-   input wire  [DATA_WIDTH-1:0] i_data,
+  input wire  [DATA_WIDTH-1:0] i_data,
   output reg [DATA_WIDTH-1:0] o_data
 
   );
@@ -13,6 +11,7 @@ module m_draw_rectangle #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, SHAPE_HF_WIDTH=3
   wire [ADDR_WIDTH-1:0] address;
   wire [DATA_WIDTH-1:0] data;
   wire [DATA_WIDTH-1:0] color;
+  wire [10:0] ctr_x = 400, ctr_y = 300;
 
   sram #(
         .ADDR_WIDTH(ADDR_WIDTH),
@@ -27,57 +26,46 @@ module m_draw_rectangle #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, SHAPE_HF_WIDTH=3
         .o_data(data)
     );
 
-  assign i_write = (((pos_x - SHAPE_HF_WIDTH*2 <= current_x) && (current_x < pos_x + SHAPE_HF_WIDTH*2)) &&
-                    ((pos_y - SHAPE_HF_HEIGHT*2 <= current_y) && (current_y < pos_y + SHAPE_HF_HEIGHT*2)));
+  assign i_write = (((ctr_x - SHAPE_HF_WIDTH <= current_x) && (current_x < ctr_x + SHAPE_HF_WIDTH)) &&
+                    ((ctr_y - SHAPE_HF_HEIGHT <= current_y) && (current_y < ctr_y + SHAPE_HF_HEIGHT)));
   assign color = i_data;
-  assign address = (i_write) ? ((current_y - pos_y) * SHAPE_HF_HEIGHT * 2 + (current_x - pos_x)) : 0;
+  assign address = (i_write) ? ((current_y - ctr_y) * SHAPE_HF_HEIGHT * 2 + (current_x - ctr_x)) : 0;
   always @(posedge clk) o_data <= data;
 endmodule
 
-//module m_draw_frame #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, DEPTH=256) (
-//    input wire clk,
-//    input wire i_write,
-//    input wire [10:0] pos_x,
-//    input wire [10:0] pos_y,
-//    input wire [10:0] ctr_x,
-//    input wire [10:0] ctr_y,
-//    input wire [10:0] inr_hf_wth, // Inner rectangle's width / 2
-//    input wire [10:0] inr_hf_hgt, // Inner rectangle's height / 2
-//    input wire [10:0] otr_hf_wth, // Outer rectangle's width / 2
-//    input wire [10:0] otr_hf_hgt, // Outer rectangle's height / 2
-//     input wire  [DATA_WIDTH-1:0] i_data,
-//    output reg [DATA_WIDTH-1:0] o_data
-//    );
+module m_draw_rectangle_k #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, DEPTH=256) (
+  input wire clk,
+  input wire i_write,
+  input wire [10:0] current_x,
+  input wire [10:0] current_y,
+  input wire [10:0] half_width,
+  input wire [10:0] half_height,
+  input wire  [DATA_WIDTH-1:0] i_data,
+  output reg [DATA_WIDTH-1:0] o_data
 
-//    wire [ADDR_WIDTH-1:0] address;
-//    wire [DATA_WIDTH-1:0] data;
-//    wire [DATA_WIDTH-1:0] color;
+  );
 
-////    wire [11:0]  max_left = CTR_X - otr_hf_wth;
-//////    wire [11:0]  min_left = CTR_X - inr_hf_wth;
-////    wire [11:0]  max_right = CTR_X + otr_hf_wth;
-//////    wire [11:0]  min_right = CTR_X + inr_hf_wth;
-////    wire [11:0]  max_up = CTR_Y - otr_hf_hgt;
-//////    wire [11:0]  min_up = CTR_Y - inr_hf_hgt;
-////    wire [11:0]  max_down = CTR_Y + otr_hf_hgt;
-//////    wire [11:0]  min_down = CTR_Y + inr_hf_hgt;
+  wire [ADDR_WIDTH-1:0] address;
+  wire [DATA_WIDTH-1:0] data;
+  wire [DATA_WIDTH-1:0] color;
+  wire [10:0] ctr_x = 400, ctr_y = 300;
 
-//    sram #(
-//         .ADDR_WIDTH(ADDR_WIDTH),
-//         .DATA_WIDTH(DATA_WIDTH),
-//         .DEPTH(DEPTH),
-//         .MEMFILE(""))
-//         vram_read (
-//         .i_addr(address),
-//         .clk(clk),
-//         .i_write(i_write),  // we're always reading
-//         .i_data(color),
-//         .o_data(data)
-//     );
+  sram #(
+        .ADDR_WIDTH(ADDR_WIDTH),
+        .DATA_WIDTH(DATA_WIDTH),
+        .DEPTH(DEPTH),
+        .MEMFILE(""))
+        vram_read (
+        .i_addr(address),
+        .clk(clk),
+        .i_write(i_write),  // we're always reading
+        .i_data(color),
+        .o_data(data)
+    );
 
-//    assign i_write = ((ctr_x - otr_hf_wth <= pos_x && pos_x < ctr_x + otr_hf_wth) && (ctr_y - otr_hf_hgt <= pos_y && pos_y < ctr_y + otr_hf_hgt)) ? 1 : 0;
-////                     (pos_x < min_left || min_right < pos_x) && (pos_y < min_up || min_down < pos_y)) ? 1 : 0;
-//    assign color = i_data;
-//    assign address = (i_write) ? ((pos_y - CTR_Y) * otr_hf_hgt * 2 + (pos_x - CTR_X)) : 0;
-//    always @(posedge clk) o_data <= data;
-//endmodule
+  assign i_write = (((ctr_x - half_width <= current_x) && (current_x < ctr_x + half_width)) &&
+                    ((ctr_y - half_height <= current_y) && (current_y < ctr_y + half_height)));
+  assign color = i_data;
+  assign address = (i_write) ? ((current_y - ctr_y) * half_height * 2 + (current_x - ctr_x)) : 0;
+  always @(posedge clk) o_data <= data;
+endmodule

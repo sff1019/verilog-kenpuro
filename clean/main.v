@@ -15,44 +15,57 @@ module m_main (
   output reg [3:0] vga_blue,
   output reg [6:0] r_sg,
   output reg [7:0] r_an
-  );
+);
+
+  wire clk, w_locked;
+  wire w_rst = ~w_locked;
+  wire [6:0] w_sg;
+  wire [7:0] w_an;
+  reg [10:0] r_draw_x, r_draw_y;
+  reg [11:0] r_rgb;
+  reg [31:0] r_duration = 0;
+  reg r_finish = 0;
 
 
-   // VRAM frame buffers (read-write)
+  // 100MHz -> 40MHz
+  clk_wiz_0 clk_wiz (clk, 1'b0, w_locked, w_clk); // 100MHz -> 40MHz
+//    reg w_clk = 0;
+//    initial forever #1 w_clk = ~w_clk;
+  assign w_led = w_btn;
+
+/******************************************************************************/
+// Count time
+/******************************************************************************/
+  reg [31:0] r_tcnt=0;
+  always@(posedge clk) r_tcnt <= (!r_finish) ? (r_tcnt>=(100000000-1)) ? 0 : r_tcnt + 1 : r_tcnt;
+  always@(posedge clk) if(r_tcnt==0) r_duration <= r_duration + 1;
+  
+/******************************************************************************/
+// Display on monitor through vga
+/******************************************************************************/
+
+  // VRAM frame buffers (read-write)
   localparam SCREEN_WIDTH = 800;
   localparam SCREEN_HEIGHT = 600;
   localparam VRAM_DEPTH = SCREEN_WIDTH * SCREEN_HEIGHT;
   localparam VRAM_A_WIDTH = 19;  // 2^19 > 800*600
   localparam VRAM_D_WIDTH = 4;   // colour bits per pixel
-
-  wire clk, w_locked;
-  wire w_rst = ~w_locked;
-  reg [10:0] r_draw_x, r_draw_y;
-  reg [11:0] r_rgb;
-
-// reg w_clk = 0;
-// initial forever #1 w_clk = ~w_clk;
-
-  clk_wiz_0 clk_wiz (clk, 1'b0, w_locked, w_clk); // 100MHz -> 40MHz
-
-  //initial forever #1 CLK100MHZ = ~CLK100MHZ;
-
-
-  assign w_led = w_btn;
-
-  reg [10:0] hcnt, vcnt;
   reg w_active;
+  reg [10:0] hcnt, vcnt;
 
-//  vga_sync (clk, w_rst, r_draw_x, r_draw_y, hsync, vsync, w_active);
-   always @(posedge clk) begin
-   hcnt   <= (w_rst) ? 0 : (hcnt==1055) ? 0 : hcnt + 1;
-   vcnt   <= (w_rst) ? 0 : (hcnt!=1055) ? vcnt : (vcnt==627) ? 0 : vcnt + 1;
-   hsync <= (w_rst) ? 1 : (hcnt>=840 && hcnt<=967) ? 0 : 1;
-   vsync <= (w_rst) ? 1 : (vcnt>=601 && vcnt<=604) ? 0 : 1;
-   w_active <= (w_rst) ? 0 : (hcnt < SCREEN_WIDTH && vcnt < SCREEN_HEIGHT);
-   r_draw_x <= (hcnt < SCREEN_WIDTH) ? hcnt : 0;
-   r_draw_y <= (vcnt < SCREEN_HEIGHT) ? vcnt : 0;
-   end
+  always @(posedge clk) begin
+    hcnt   <= (w_rst) ? 0 : (hcnt==1055) ? 0 : hcnt + 1;
+    vcnt   <= (w_rst) ? 0 : (hcnt!=1055) ? vcnt : (vcnt==627) ? 0 : vcnt + 1;
+    hsync <= (w_rst) ? 1 : (hcnt>=840 && hcnt<=967) ? 0 : 1;
+    vsync <= (w_rst) ? 1 : (vcnt>=601 && vcnt<=604) ? 0 : 1;
+    w_active <= (w_rst) ? 0 : (hcnt < SCREEN_WIDTH && vcnt < SCREEN_HEIGHT);
+    r_draw_x <= (hcnt < SCREEN_WIDTH) ? hcnt : 0;
+    r_draw_y <= (vcnt < SCREEN_HEIGHT) ? vcnt : 0;
+  end
+
+  /******************************************************************************/
+  // Display on monitor what is inside of BRAM
+  /******************************************************************************/
 
   reg [VRAM_A_WIDTH-1:0] r_address;
   reg [VRAM_D_WIDTH-1:0] r_vram_data_in;
@@ -60,109 +73,114 @@ module m_main (
   reg r_vram_write = 0;
 
   sram #(
-        .ADDR_WIDTH(VRAM_A_WIDTH),
-        .DATA_WIDTH(VRAM_D_WIDTH),
-        .DEPTH(VRAM_DEPTH),
-        .MEMFILE(""))
-        vram_read (
-        .i_addr(r_address),
-        .clk(clk),
-        .i_write(r_vram_write),  // we're always reading
-        .i_data(r_vram_data_in),
-        .o_data(w_vram_data_out)
-    );
-
-  wire [VRAM_D_WIDTH-1:0] w_target_data_in, w_frame_data_in, w_frame_data_out, w_shape_data_out;
-  assign w_target_data_in = 4'b0101;
-  assign w_frame_data_in = 4'b1001;
-  reg [10:0] r_ctr_x=400, r_ctr_y=300;  // current pixel x position: 10-bit value: 0-1023
-//  reg [10:0] r_pos_x=0, r_pos_y=0;  // current pixel x position: 10-bit value: 0-1023
-  wire w_frame_draw, w_shape_draw;
-  
-   m_draw_rectangle #(
-     .ADDR_WIDTH(VRAM_A_WIDTH),
-     .DATA_WIDTH(VRAM_D_WIDTH),
-     .SHAPE_HF_WIDTH(100),
-     .SHAPE_HF_HEIGHT(75)
-     )
-     frame (
-       .clk(clk),
-       .i_write(w_frame_draw),
-       .current_x(r_draw_x),
-       .current_y(r_draw_y),
-       .pos_x(r_ctr_x),
-       .pos_y(r_ctr_y),
-       .i_data(w_frame_data_in),
-       .o_data(w_frame_data_out)
-     );
-     
-  m_draw_rectangle #(
     .ADDR_WIDTH(VRAM_A_WIDTH),
     .DATA_WIDTH(VRAM_D_WIDTH),
-    .SHAPE_HF_WIDTH(40),
-    .SHAPE_HF_HEIGHT(30)
-    )
-    target (
-      .clk(clk),
-      .i_write(w_shape_draw),
-      .current_x(r_draw_x),
-      .current_y(r_draw_y),
-      .pos_x(r_ctr_x),
-      .pos_y(r_ctr_y),
-      .i_data(w_target_data_in),
-      .o_data(w_shape_data_out)
-    );
-//  m_draw_frame #(
-//    .ADDR_WIDTH(VRAM_A_WIDTH),
-//    .DATA_WIDTH(VRAM_D_WIDTH),
-//    .DEPTH(256)
-//    )
-//    frame (
-//      .clk(w_clk),
-//      .i_write(w_draw),
-//      .pos_x(r_draw_x),
-//      .pos_y(r_draw_y),
-//      .ctr_x(r_ctr_x),
-//      .ctr_y(r_ctr_y),
-//      .inr_hf_wth(30),
-//      .inr_hf_hgt(30),
-//      .otr_hf_wth(0),
-//      .otr_hf_hgt(0),
-//      .i_data(w_entity_data_in),
-//     .o_data(w_entity_data_out)
-//      );
+    .DEPTH(VRAM_DEPTH),
+    .MEMFILE(""))
+  vram_read (
+    .i_addr(r_address),
+    .clk(clk),
+    .i_write(r_vram_write),  // we're always reading
+    .i_data(r_vram_data_in),
+    .o_data(w_vram_data_out)
+  );
 
-   reg [19:0] r_cnt=0;
-   always @(posedge clk) begin
-     r_cnt <= (r_cnt>=(200000-1)) ? 0 : r_cnt + 1;;
-     if (r_cnt == 0) begin
-         if(w_btn[0] && (r_ctr_x > 32)) r_ctr_x <= r_ctr_x - 1;
-         if(w_btn[1] && (r_ctr_x < SCREEN_HEIGHT - 32)) r_ctr_x <= r_ctr_x + 1;
-         if(w_btn[2] && (r_ctr_y > 32)) r_ctr_y <= r_ctr_y - 1;
-         if(w_btn[3] && (r_ctr_y < SCREEN_WIDTH-32)) r_ctr_y <= r_ctr_y + 1;
+  /******************************************************************************/
+  // Store frame info onto BRAM
+  /******************************************************************************/
+
+  wire [VRAM_D_WIDTH-1:0] w_frame_data_in, w_frame_data_out;
+  assign w_frame_data_in = 4'b1001;
+  reg [10:0] frame_width = 400, frame_height = 300;
+  wire w_frame_draw;
+
+  m_draw_rectangle_k #(
+    .ADDR_WIDTH(VRAM_A_WIDTH),
+    .DATA_WIDTH(VRAM_D_WIDTH),
+    .DEPTH(400*300)
+  )
+  frame (
+    .clk(clk),
+    .i_write(w_frame_draw),
+    .current_x(r_draw_x),
+    .current_y(r_draw_y),
+    .half_width(frame_width),
+    .half_height(frame_height),
+    .i_data(w_frame_data_in),
+    .o_data(w_frame_data_out)
+  );
+
+  /******************************************************************************/
+  // Store target info onto BRAM
+  /******************************************************************************/
+
+  wire [VRAM_D_WIDTH-1:0] w_target_data_in, w_target_data_out;
+  assign w_target_data_in = 4'b0100;
+  reg [10:0] target_width = 20, target_height = 15;
+  wire  w_target_draw;
+
+  m_draw_rectangle_k #(
+    .ADDR_WIDTH(VRAM_A_WIDTH),
+    .DATA_WIDTH(VRAM_D_WIDTH),
+    .DEPTH(20*15)
+  )
+  target (
+    .clk(clk),
+    .i_write(w_target_draw),
+    .current_x(r_draw_x),
+    .current_y(r_draw_y),
+    .half_width(target_width),
+    .half_height(target_height),
+    .i_data(w_target_data_in),
+    .o_data(w_target_data_out)
+  );
+
+  /******************************************************************************/
+  // Store target info onto BRAM
+  /******************************************************************************/
+
+  reg [31:0] r_score=0;
+  reg [19:0] r_cnt=0;
+  m_7segcon m_7segcon(clk, r_duration, w_sg, w_an);
+
+  always @(posedge clk) begin
+    r_address <= r_draw_y * SCREEN_WIDTH + r_draw_x;
+    r_cnt <= (r_cnt>=(200000-1)) ? 0 : r_cnt + 1;
+    
+    /******************************************************************************/
+    // Change the frame size
+    /******************************************************************************/
+    if (r_cnt == 0 && !r_finish) begin
+        frame_width <= (frame_width > target_width) ? frame_width - 4 : 400;
+        frame_height <= (frame_height > target_height) ? frame_height - 3 : 300;
+        if (w_btn[4]) r_finish <= ~r_finish;
     end
-      if(r_ctr_x!=SCREEN_HEIGHT)
-        r_address <= r_draw_y * SCREEN_WIDTH + r_draw_x;
 
-      if (w_frame_draw || w_shape_draw)
-      begin
-        r_vram_write <= 1;
-        r_vram_data_in <= (w_shape_draw) ? w_shape_data_out : w_frame_data_out;
-      end
-      else r_vram_write <= 0;
-
-//      r_rgb <= (w_active && w_draw) ? w_vram_data_out : (w_active) ?  12'b111111111111 : 0;
-         r_rgb <= (w_active && (w_shape_draw || w_frame_draw)) ? {{2{w_vram_data_out[2], w_vram_data_out[3]}},
-                   {2{w_vram_data_out[1], w_vram_data_out[3]}},
-                   {2{w_vram_data_out[0], w_vram_data_out[3]}}} : (w_active) ? 12'b111111111111 : 0;
-      //   r_rgb <= w_vram_data_out;
-      // else
-      //   r_rgb <= 0;
-
-      vga_red <= r_rgb[11:8];
-      vga_green <= r_rgb[7:4];
-      vga_blue <= r_rgb[3:0];
+    // If writing an object
+    if (w_frame_draw || w_target_draw)
+    begin
+      r_vram_write <= 1;
+      r_vram_data_in <= (w_target_draw) ? w_target_data_out : w_frame_data_out;
     end
+    else r_vram_write <= 0;
+
+    r_sg <= w_sg;
+    r_an <= w_an;
+    r_rgb <= (w_active && (w_target_draw || w_frame_draw)) ? {{2{w_vram_data_out[2], w_vram_data_out[3]}},
+             {2{w_vram_data_out[1], w_vram_data_out[3]}},
+             {2{w_vram_data_out[0], w_vram_data_out[3]}}} : (w_active) ? 12'b111111111111 : 0;
+
+    vga_red <= r_rgb[11:8];
+    vga_green <= r_rgb[7:4];
+    vga_blue <= r_rgb[3:0];
+    
+    /******************************************************************************/
+    // After 'stop' has been pushed, display score
+    /******************************************************************************/
+    if (r_finish) begin
+        r_score <= (frame_width + frame_width) * (frame_height + frame_height);
+    end
+  end
 
 endmodule
 
