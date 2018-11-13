@@ -1,39 +1,4 @@
-module m_draw_rectangle #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, SHAPE_HF_WIDTH=32, SHAPE_HF_HEIGHT=32) (
-  input wire clk,
-  input wire i_write,
-  input wire [10:0] current_x,
-  input wire [10:0] current_y,
-  input wire  [DATA_WIDTH-1:0] i_data,
-  output reg [DATA_WIDTH-1:0] o_data
-
-  );
-
-  wire [ADDR_WIDTH-1:0] address;
-  wire [DATA_WIDTH-1:0] data;
-  wire [DATA_WIDTH-1:0] color;
-  wire [10:0] ctr_x = 400, ctr_y = 300;
-
-  sram #(
-        .ADDR_WIDTH(ADDR_WIDTH),
-        .DATA_WIDTH(DATA_WIDTH),
-        .DEPTH((SHAPE_HF_WIDTH+SHAPE_HF_WIDTH)*(SHAPE_HF_HEIGHT*SHAPE_HF_HEIGHT)),
-        .MEMFILE(""))
-        vram_read (
-        .i_addr(address),
-        .clk(clk),
-        .i_write(i_write),  // we're always reading
-        .i_data(color),
-        .o_data(data)
-    );
-
-  assign i_write = (((ctr_x - SHAPE_HF_WIDTH <= current_x) && (current_x < ctr_x + SHAPE_HF_WIDTH)) &&
-                    ((ctr_y - SHAPE_HF_HEIGHT <= current_y) && (current_y < ctr_y + SHAPE_HF_HEIGHT)));
-  assign color = i_data;
-  assign address = (i_write) ? ((current_y - ctr_y) * SHAPE_HF_HEIGHT * 2 + (current_x - ctr_x)) : 0;
-  always @(posedge clk) o_data <= data;
-endmodule
-
-module m_draw_rectangle_k #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, DEPTH=256) (
+module m_draw_rectangle #(parameter ADDR_WIDTH=8, DATA_WIDTH=4, DEPTH=256) (
   input wire clk,
   input wire i_write,
   input wire [10:0] current_x,

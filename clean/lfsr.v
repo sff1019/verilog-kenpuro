@@ -1,18 +1,18 @@
 `timescale 1ns / 1ps
 
 module m_lfsr_4bit (
-  input wire clk,
-  output wire [31:0] result
-  );
+    input wire clk,
+    input wire w_rst,
+    output reg [3:0] out
+    );
+  wire feedback;
+  
+  assign feedback = ~(out[3] ^ out[2]);
 
-  reg [3:0] random;
-  initial begin random <= 4'b1111; end
-  wire feedback = random[3] ^ random[2];
-
-  always @(posedge clk)
-    random <= {random[3:0], feedback};
-
-  assign result = random;
+    always @(posedge clk) begin
+        if (w_rst) out = 4'b0;
+        else out <= {out[2:0],feedback};
+  end
 endmodule
 
 module m_lfsr_32bit(
