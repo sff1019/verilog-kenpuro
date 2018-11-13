@@ -3,6 +3,8 @@
 module m_lfsr_4bit (
     input wire clk,
     input wire w_rst,
+    input wire w_random,
+    input wire w_flag_width,
     output reg [3:0] out
     );
   wire feedback;
@@ -11,7 +13,8 @@ module m_lfsr_4bit (
 
     always @(posedge clk) begin
         if (w_rst) out = 4'b0;
-        else out <= {out[2:0],feedback};
+        else if (w_random) out <= {out[2:0],feedback};
+        else out <= (w_flag_width) ? 4 : 3;
   end
 endmodule
 
@@ -28,3 +31,6 @@ module m_lfsr_32bit(
 
   assign rand = random;
 endmodule
+
+    
+    

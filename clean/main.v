@@ -141,20 +141,27 @@ module m_main (
 
   reg [31:0] r_score=0;
   reg [19:0] r_cnt=0;
-  wire [3:0]  r_lfsr;
-  m_lfsr_4bit rand (clk, w_rst, r_lfsr);
+  wire [3:0]  r_lfsr_width, r_lfsr_height;
+  reg r_restart = 0;
+  reg r_random=0;
+  m_lfsr_4bit rand_width (clk, w_rst, r_random, 1, r_lfsr_width);
+  m_lfsr_4bit rand_height (clk, w_rst, r_random, 0, r_lfsr_height);
+
   m_7segcon m_7segcon(clk, r_score, w_sg, w_an);
 
   always @(posedge clk) begin
     r_address <= r_draw_y * SCREEN_WIDTH + r_draw_x;
-    r_cnt <= (r_cnt>=(500000-1)) ? 0 : r_cnt + 1;
+    if (r_random) r_cnt <= (r_cnt>=(500000-1)) ? 0 : r_cnt + 1;
+    else r_cnt <= (r_cnt>=(200000-1)) ? 0 : r_cnt + 1;
     r_sg <= w_sg;
     r_an <= w_an;
+    r_random <= (sw[0]) ? 1 : 0;
 
     if (r_cnt == 0) begin
       r_finish <= (w_btn[4]|| r_duration == 30) ? 1 : r_finish;
-      frame_width <= (r_finish == 0) ? ((frame_width > target_width) ? frame_width - r_lfsr : 400) : frame_width;
-      frame_height <= (r_finish == 0) ? ((frame_height > target_height) ? frame_height - r_lfsr : 300) : frame_height;
+      r_restart <= (w_btn[2]) ? 1 : 0;
+      frame_width <= (r_finish == 0) ? ((frame_width > target_width) ? frame_width - r_lfsr_width : 400) : frame_width;
+      frame_height <= (r_finish == 0) ? ((frame_height > target_height) ? frame_height - r_lfsr_height : 300) : frame_height;
     end
 
     // If writing an object
@@ -176,8 +183,16 @@ module m_main (
     // After 'stop' has been pushed, display score
     /******************************************************************************/
     if (r_finish) begin
-        r_score <= 500000 - (frame_width + frame_width) * (frame_height + frame_height) - 15000 * r_duration;
+        r_score <= 1000000 - (frame_width + frame_width) * (frame_height + frame_height) - 1000 * r_duration * r_duration;
     end
+    
+    if (r_restart) begin
+        r_score <= 0;
+        frame_width <= 400;
+        frame_height <= 300;
+        r_duration <= 0;
+        r_finish <= 0;
+     end
   end
 
 endmodule
