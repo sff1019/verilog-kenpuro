@@ -12,6 +12,10 @@
 
 ## コードの説明
 
+ざっくりとしたフローチャートを下に示す。タイミングは微妙に異なる。
+
+![Flow chart] (https://github.com/sff1019/verilog-kenpuro/blob/master/diagram.png)
+
 ### VGA出力
 吉瀬先生のコードを参考にした。  
 追加で、どこを描いているのかがわかるようにx,y座標を追加した。
