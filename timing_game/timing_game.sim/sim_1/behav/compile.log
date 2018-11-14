@@ -1,0 +1,19 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.srcs/sources_1/new/vram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sram
+INFO: [VRFC 10-311] analyzing module draw_target
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.srcs/sources_1/new/lfsr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module m_lfsr_4bit
+INFO: [VRFC 10-311] analyzing module m_lfsr_32bit
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.srcs/sources_1/new/7seg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module m_7segled
+INFO: [VRFC 10-311] analyzing module m_7segcon
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.srcs/sources_1/new/frame.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module m_draw_rectangle
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.srcs/sources_1/new/main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module m_main
+INFO: [VRFC 10-2263] Analyzing Verilog file "Z:/bg/bg.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

@@ -1,0 +1,36 @@
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2016.4/bin/unwrapped/win64.o/xelab.exe -wto 256680d535244b4b934a74e6441928d5 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot m_main_behav xil_defaultlib.m_main xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port reset [Z:/bg/bg.srcs/sources_1/new/main.v:34]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port w_flag_width [Z:/bg/bg.srcs/sources_1/new/main.v:167]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port w_flag_width [Z:/bg/bg.srcs/sources_1/new/main.v:168]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/frame.v" Line 1. Module m_draw_rectangle(ADDR_WIDTH=19,DATA_WIDTH=8,DEPTH=30000) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/frame.v" Line 1. Module m_draw_rectangle(ADDR_WIDTH=19,DATA_WIDTH=8,DEPTH=300) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/7seg.v" Line 23. Module m_7segcon doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/7seg.v" Line 1. Module m_7segled doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/frame.v" Line 1. Module m_draw_rectangle(ADDR_WIDTH=19,DATA_WIDTH=8,DEPTH=30000) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/frame.v" Line 1. Module m_draw_rectangle(ADDR_WIDTH=19,DATA_WIDTH=8,DEPTH=300) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/7seg.v" Line 23. Module m_7segcon doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "Z:/bg/bg.srcs/sources_1/new/7seg.v" Line 1. Module m_7segled doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module xil_defaultlib.sram(ADDR_WIDTH=19,DATA_WIDTH=8,...
+Compiling module xil_defaultlib.sram(ADDR_WIDTH=19,DATA_WIDTH=8,...
+Compiling module xil_defaultlib.m_draw_rectangle(ADDR_WIDTH=19,D...
+Compiling module xil_defaultlib.sram(ADDR_WIDTH=19,DATA_WIDTH=8,...
+Compiling module xil_defaultlib.m_draw_rectangle(ADDR_WIDTH=19,D...
+Compiling module xil_defaultlib.m_lfsr_4bit
+Compiling module xil_defaultlib.m_7segled
+Compiling module xil_defaultlib.m_7segcon
+Compiling module xil_defaultlib.m_main
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot m_main_behav
