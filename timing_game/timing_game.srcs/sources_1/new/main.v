@@ -170,7 +170,8 @@ module m_main (
     if(r_tcnt==0) r_duration <= r_duration + 1;
     
     if (r_finish) begin
-      r_score <= 700000 - (r_frame_width + r_frame_width) * (r_frame_height + r_frame_height) - 1000 * r_duration * r_duration;
+      if (r_duration != 15) r_score <= 700000 - (r_frame_width + r_frame_width) * (r_frame_height + r_frame_height) - 1000 * r_duration * r_duration;
+      else r_score <= 0;
     end
 
     if (r_restart) begin
