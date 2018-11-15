@@ -3,7 +3,11 @@
 東工大研究プロジェクト（吉瀬研究室）のgit
 
 ## 概要
-タイミングゲームの実装
+タイミングゲームの実装  
+中心にある長方形のターゲットに重なるようにストップボタンを押す、レトロなゲーム
+
+## 最終的なゲームの様子
+![Game Demo](./assets/demo.jpg)
 
 ## 用いたハードウエア
 - Nexys 4 DDA
@@ -14,7 +18,7 @@
 
 ざっくりとしたフローチャートを下に示す。タイミングは微妙に異なる。
 
-![Flow chart](https://raw.githubusercontent.com/sff1019/verilog-kenpuro/master/diagram.png)
+![Flow chart](./assets/diagram.png)
 
 ### VGA出力
 吉瀬先生のコードを参考にした。  
@@ -33,9 +37,14 @@
 ### 図形出力
 
 図形出力はBRAMに図形の情報を書き込むことで実行される。この場合、現在書いてるピクセル `current_x`, `current_y` が指定した範囲`pos_x`, `pos_y` にある時だけBRAMに格納し、それ以外は何もしない実装をした。  
+
 フローチャートは下記のようになる。  
 
 ![VRAM](./assets/draw_rectangle.png)
+
+また、背景のボードは下記のようにデザインをした。
+
+![Game Background](./assets/board_preview.png)
 
 ### 経過時間計算
 
@@ -52,4 +61,11 @@ always@(posedge clk) if(r_tcnt==0) r_duration <= r_duration + 1;
 
 ## 参考サイト
 
+**Time to Explore**
+- https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
+- https://timetoexplore.net/blog/arty-fpga-vga-verilog-02
+- https://timetoexplore.net/blog/arty-fpga-vga-verilog-03
+
+Memory File Generator:
+- https://github.com/WillGreen/fpgatools
 https://timetoexplore.net/
