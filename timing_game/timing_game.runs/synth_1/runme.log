@@ -1,0 +1,1030 @@
+
+*** Running vivado
+    with args -log m_main.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source m_main.tcl
+
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source m_main.tcl -notrace
+Command: synth_design -top m_main -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 640 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 293.781 ; gain = 83.281
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'm_main' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:6]
+	Parameter SCREEN_WIDTH bound to: 800 - type: integer 
+	Parameter SCREEN_HEIGHT bound to: 600 - type: integer 
+	Parameter VRAM_DEPTH bound to: 480000 - type: integer 
+	Parameter VRAM_A_WIDTH bound to: 19 - type: integer 
+	Parameter VRAM_D_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'bg_palette.mem' is read successfully [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:146]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [Z:/timing_game/timing_game.runs/synth_1/.Xil/Vivado-7252-DESKTOP-5KRUO71/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [Z:/timing_game/timing_game.runs/synth_1/.Xil/Vivado-7252-DESKTOP-5KRUO71/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'sram' [Z:/timing_game/timing_game.srcs/sources_1/new/vram.v:3]
+	Parameter ADDR_WIDTH bound to: 19 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 480000 - type: integer 
+	Parameter MEMFILE bound to: bg.mem - type: string 
+INFO: [Synth 8-3876] $readmem data file 'bg.mem' is read successfully [Z:/timing_game/timing_game.srcs/sources_1/new/vram.v:17]
+INFO: [Synth 8-256] done synthesizing module 'sram' (2#1) [Z:/timing_game/timing_game.srcs/sources_1/new/vram.v:3]
+INFO: [Synth 8-638] synthesizing module 'm_draw_rectangle' [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:1]
+	Parameter ADDR_WIDTH bound to: 19 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 30000 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'sram__parameterized0' [Z:/timing_game/timing_game.srcs/sources_1/new/vram.v:3]
+	Parameter ADDR_WIDTH bound to: 19 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 30000 - type: integer 
+	Parameter MEMFILE bound to: (null) - type: string 
+INFO: [Synth 8-256] done synthesizing module 'sram__parameterized0' (2#1) [Z:/timing_game/timing_game.srcs/sources_1/new/vram.v:3]
+INFO: [Synth 8-256] done synthesizing module 'm_draw_rectangle' (3#1) [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:1]
+INFO: [Synth 8-638] synthesizing module 'm_draw_rectangle__parameterized0' [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:1]
+	Parameter ADDR_WIDTH bound to: 19 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 300 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'sram__parameterized1' [Z:/timing_game/timing_game.srcs/sources_1/new/vram.v:3]
+	Parameter ADDR_WIDTH bound to: 19 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 300 - type: integer 
+	Parameter MEMFILE bound to: (null) - type: string 
+INFO: [Synth 8-256] done synthesizing module 'sram__parameterized1' (3#1) [Z:/timing_game/timing_game.srcs/sources_1/new/vram.v:3]
+INFO: [Synth 8-256] done synthesizing module 'm_draw_rectangle__parameterized0' (3#1) [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:1]
+INFO: [Synth 8-638] synthesizing module 'm_lfsr_4bit' [Z:/timing_game/timing_game.srcs/sources_1/new/lfsr.v:3]
+INFO: [Synth 8-256] done synthesizing module 'm_lfsr_4bit' (4#1) [Z:/timing_game/timing_game.srcs/sources_1/new/lfsr.v:3]
+INFO: [Synth 8-638] synthesizing module 'm_7segcon' [Z:/timing_game/timing_game.srcs/sources_1/new/7seg.v:23]
+INFO: [Synth 8-638] synthesizing module 'm_7segled' [Z:/timing_game/timing_game.srcs/sources_1/new/7seg.v:1]
+INFO: [Synth 8-256] done synthesizing module 'm_7segled' (5#1) [Z:/timing_game/timing_game.srcs/sources_1/new/7seg.v:1]
+INFO: [Synth 8-256] done synthesizing module 'm_7segcon' (6#1) [Z:/timing_game/timing_game.srcs/sources_1/new/7seg.v:23]
+WARNING: [Synth 8-3848] Net w_draw_target in module/entity m_main does not have driver. [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:122]
+WARNING: [Synth 8-3848] Net w_frame_draw in module/entity m_main does not have driver. [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:97]
+INFO: [Synth 8-256] done synthesizing module 'm_main' (7#1) [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:6]
+WARNING: [Synth 8-3917] design m_main has port w_led[15] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[14] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[13] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[12] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[11] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[10] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[9] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[8] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[7] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[6] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[5] driven by constant 0
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[18]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[17]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[16]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[15]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[14]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[13]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[12]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[11]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[10]
+WARNING: [Synth 8-3331] design sram__parameterized1 has unconnected port i_addr[9]
+WARNING: [Synth 8-3331] design sram__parameterized0 has unconnected port i_addr[18]
+WARNING: [Synth 8-3331] design sram__parameterized0 has unconnected port i_addr[17]
+WARNING: [Synth 8-3331] design sram__parameterized0 has unconnected port i_addr[16]
+WARNING: [Synth 8-3331] design sram__parameterized0 has unconnected port i_addr[15]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[11]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[10]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[9]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[8]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[7]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[6]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[5]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[4]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[3]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[2]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:28 . Memory (MB): peak = 505.820 ; gain = 295.320
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin frame:i_write to constant 0 [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:104]
+WARNING: [Synth 8-3295] tying undriven pin target:i_write to constant 0 [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:129]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:36 . Memory (MB): peak = 505.820 ; gain = 295.320
+---------------------------------------------------------------------------------
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'clk_wiz' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:34]
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [Z:/timing_game/timing_game.runs/synth_1/.Xil/Vivado-7252-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
+Finished Parsing XDC File [Z:/timing_game/timing_game.runs/synth_1/.Xil/Vivado-7252-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
+Parsing XDC File [Z:/timing_game/timing_game.srcs/constrs_1/new/main.xdc]
+Finished Parsing XDC File [Z:/timing_game/timing_game.srcs/constrs_1/new/main.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [Z:/timing_game/timing_game.srcs/constrs_1/new/main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/m_main_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/m_main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 736.102 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:01:04 . Memory (MB): peak = 736.102 ; gain = 525.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:01:04 . Memory (MB): peak = 736.102 ; gain = 525.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for w_clk. (constraint file  Z:/timing_game/timing_game.runs/synth_1/.Xil/Vivado-7252-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for w_clk. (constraint file  Z:/timing_game/timing_game.runs/synth_1/.Xil/Vivado-7252-DESKTOP-5KRUO71/dcp/clk_wiz_0_in_context.xdc, line 4).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:01:04 . Memory (MB): peak = 736.102 ; gain = 525.602
+---------------------------------------------------------------------------------
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:31]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:32]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:31]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:32]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:31]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:32]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:31]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:32]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:31]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:32]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:31]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [Z:/timing_game/timing_game.srcs/sources_1/new/frame.v:32]
+INFO: [Synth 8-5545] ROM "r_digit" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "r_duration" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "r_restart" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_palette_bg" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:01:07 . Memory (MB): peak = 736.102 ; gain = 525.602
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     26 Bit       Adders := 1     
+	   2 Input     19 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 4     
+	   2 Input     11 Bit       Adders := 10    
+	   3 Input     11 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 7     
+	                8 Bit    Registers := 8     
+	                7 Bit    Registers := 2     
+	                4 Bit    Registers := 6     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Multipliers : 
+	                10x32  Multipliers := 1     
+	                32x32  Multipliers := 1     
++---RAMs : 
+	            3750K Bit         RAMs := 1     
+	             234K Bit         RAMs := 1     
+	               2K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     19 Bit        Muxes := 2     
+	 257 Input     12 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 3     
+	   3 Input     11 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 3     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module m_main 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     26 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 2     
+	   3 Input     11 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 7     
+	                8 Bit    Registers := 2     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 7     
++---Multipliers : 
+	                10x32  Multipliers := 1     
+	                32x32  Multipliers := 1     
++---Muxes : 
+	 257 Input     12 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 3     
+	   3 Input     11 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 3     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+Module sram 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---RAMs : 
+	            3750K Bit         RAMs := 1     
+Module sram__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---RAMs : 
+	             234K Bit         RAMs := 1     
+Module m_draw_rectangle 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     19 Bit       Adders := 1     
+	   3 Input     12 Bit       Adders := 2     
+	   2 Input     11 Bit       Adders := 4     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     19 Bit        Muxes := 1     
+Module sram__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---RAMs : 
+	               2K Bit         RAMs := 1     
+Module m_draw_rectangle__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     19 Bit       Adders := 1     
+	   3 Input     12 Bit       Adders := 2     
+	   2 Input     11 Bit       Adders := 4     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     19 Bit        Muxes := 1     
+Module m_lfsr_4bit 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 1     
+Module m_7segcon 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
++---Muxes : 
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'r_draw_y_reg[10:0]' into 'r_draw_y_reg[10:0]' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:60]
+INFO: [Synth 8-4471] merging register 'r_draw_x_reg[10:0]' into 'r_draw_x_reg[10:0]' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:59]
+INFO: [Synth 8-5546] ROM "r_restart" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "r_duration" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:208]
+INFO: [Synth 8-5545] ROM "r_digit" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-4471] merging register 'r_draw_x_reg[10:0]' into 'r_draw_x_reg[10:0]' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:59]
+INFO: [Synth 8-4471] merging register 'r_draw_y_reg[10:0]' into 'r_draw_y_reg[10:0]' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:60]
+INFO: [Synth 8-5546] ROM "r_restart" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "r_duration" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
+DSP Report: Generating DSP frame/address2, operation Mode is: A*B.
+DSP Report: operator frame/address2 is absorbed into DSP frame/address2.
+DSP Report: Generating DSP r_address_reg, operation Mode is: C'+A2*(B:0x320).
+DSP Report: register r_draw_y_reg is absorbed into DSP r_address_reg.
+DSP Report: register r_draw_x_reg is absorbed into DSP r_address_reg.
+DSP Report: register r_address_reg is absorbed into DSP r_address_reg.
+DSP Report: operator r_address0 is absorbed into DSP r_address_reg.
+DSP Report: operator r_address1 is absorbed into DSP r_address_reg.
+DSP Report: Generating DSP r_score1, operation Mode is: A*B.
+DSP Report: operator r_score1 is absorbed into DSP r_score1.
+DSP Report: operator r_score1 is absorbed into DSP r_score1.
+DSP Report: Generating DSP r_score1, operation Mode is: A*B.
+DSP Report: operator r_score1 is absorbed into DSP r_score1.
+DSP Report: operator r_score1 is absorbed into DSP r_score1.
+DSP Report: Generating DSP r_score1, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator r_score1 is absorbed into DSP r_score1.
+DSP Report: operator r_score1 is absorbed into DSP r_score1.
+DSP Report: Generating DSP r_score2, operation Mode is: (D+A)*B.
+DSP Report: operator r_score2 is absorbed into DSP r_score2.
+DSP Report: operator r_score3 is absorbed into DSP r_score2.
+WARNING: [Synth 8-3917] design m_main has port w_led[15] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[14] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[13] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[12] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[11] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[10] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[9] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[8] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[7] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[6] driven by constant 0
+WARNING: [Synth 8-3917] design m_main has port w_led[5] driven by constant 0
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[11]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[10]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[9]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[8]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[7]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[6]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[5]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[4]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[3]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[2]
+WARNING: [Synth 8-3331] design m_main has unconnected port sw[1]
+Removed BRAM instance from module partition due to constant propagation
+Removed BRAM instance from module partition due to constant propagation
+Removed BRAM instance from module partition due to constant propagation
+Removed BRAM instance from module partition due to constant propagation
+Removed BRAM instance from module partition due to constant propagation
+Removed BRAM instance from module partition due to constant propagation
+Removed 6 RAM instances from module partition due to constant propagation
+INFO: [Synth 8-3886] merging instance 'i_13/frame/o_data_reg[1]' (FD) to 'i_13/frame/o_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_13/frame/o_data_reg[2]' (FD) to 'i_13/frame/o_data_reg[4]'
+INFO: [Synth 8-3886] merging instance 'i_13/frame/o_data_reg[4]' (FD) to 'i_13/frame/o_data_reg[5]'
+INFO: [Synth 8-3886] merging instance 'i_13/frame/o_data_reg[5]' (FD) to 'i_13/frame/o_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'i_13/frame/o_data_reg[7]' (FD) to 'i_13/frame/o_data_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_13/\frame/o_data_reg[6] )
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__55' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__62'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__47' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__39' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__31' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__23' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__15' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__7' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__6'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__56' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__62'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__48' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__40' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__32' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__24' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__16' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__8' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__0' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__6'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__57' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__62'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__49' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__41' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__33' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__25' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__17' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__9' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__1' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__6'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__58' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__62'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__50' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__42' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__34' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__26' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__18' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__10' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__2' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__6'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__59' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__62'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__51' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__43' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__35' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__27' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__19' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__11' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__3' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__6'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__60' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__62'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__52' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__44' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__36' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__28' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__20' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__54'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__12' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__38'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__4' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__6'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__62' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__61'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__54' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__53'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__46' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__53'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__38' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__37'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__30' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__53'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__22' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__53'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__14' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__37'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__6' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__5'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__53' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__45'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__45' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__29'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__37' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__13'
+INFO: [Synth 8-3886] merging instance 'i_0/vram_read/memory_array_reg_mux_sel__29' (FD) to 'i_0/vram_read/memory_array_reg_mux_sel__21'
+INFO: [Synth 8-3886] merging instance 'r_rgb_reg[0]' (FD) to 'r_rgb_reg[4]'
+INFO: [Synth 8-3886] merging instance 'r_rgb_reg[2]' (FD) to 'r_rgb_reg[6]'
+INFO: [Synth 8-3886] merging instance 'r_rgb_reg[4]' (FD) to 'r_rgb_reg[8]'
+INFO: [Synth 8-3886] merging instance 'r_rgb_reg[6]' (FD) to 'r_rgb_reg[10]'
+INFO: [Synth 8-3886] merging instance 'vga_blue_reg[0]' (FD) to 'vga_green_reg[0]'
+INFO: [Synth 8-3886] merging instance 'vga_blue_reg[2]' (FD) to 'vga_green_reg[2]'
+INFO: [Synth 8-3886] merging instance 'vga_green_reg[0]' (FD) to 'vga_red_reg[0]'
+INFO: [Synth 8-3886] merging instance 'vga_green_reg[2]' (FD) to 'vga_red_reg[2]'
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[31]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[31]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[30]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[30]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[29]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[29]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[28]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[28]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[27]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[27]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[26]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[26]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[25]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[25]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[24]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[24]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[23]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[23]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[22]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[22]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[21]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[21]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[20]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[20]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[19]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[19]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[18]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[18]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[17]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[17]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[16]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[16]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[15]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[15]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[14]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[14]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[13]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[13]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[12]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[12]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[11]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[11]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[10]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[10]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[9]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[9]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[8]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[8]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[7]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[7]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[6]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[6]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[5]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[5]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[4]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[4]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[3]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[3]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[2]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[2]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[1]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[1]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[0]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_duration_reg[0]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:178]
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[31]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[30]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[29]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[28]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[27]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[26]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[25]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[24]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[23]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[22]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[21]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[20]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[19]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[18]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[17]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[16]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[15]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[14]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[13]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[12]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[11]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[10]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[9]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[8]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[7]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[6]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[5]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[4]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[3]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[2]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[1]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_duration_reg[0]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[25]) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[24]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[24]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[23]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[23]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[22]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[22]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[21]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[21]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[20]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[20]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[19]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[19]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[18]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[18]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[17]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[17]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[16]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[16]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[15]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[15]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[14]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[14]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[13]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[13]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[12]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[12]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[11]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[11]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[10]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[10]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[9]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[9]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[8]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[8]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[7]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'r_tcnt_reg[7]/Q' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+INFO: [Common 17-14] Message 'Synth 8-3352' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[6]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[5]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[4]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[3]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[2]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[1]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[0]) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:217]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[25]__0) is unused and will be removed from module m_main.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [Z:/timing_game/timing_game.srcs/sources_1/new/main.v:41]
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[24]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[23]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[22]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[21]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[20]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[19]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[18]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[17]__0) is unused and will be removed from module m_main.
+WARNING: [Synth 8-3332] Sequential element (r_tcnt_reg[16]__0) is unused and will be removed from module m_main.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'r_score_reg[31]' (FDRE) to 'r_score_reg[30]'
+INFO: [Synth 8-3886] merging instance 'r_score_reg[27]' (FDRE) to 'r_score_reg[30]'
+INFO: [Synth 8-3886] merging instance 'r_score_reg[29]' (FDRE) to 'r_score_reg[30]'
+INFO: [Synth 8-3886] merging instance 'r_score_reg[28]' (FDRE) to 'r_score_reg[30]'
+INFO: [Synth 8-3886] merging instance 'r_score_reg[30]' (FDRE) to 'r_score_reg[26]'
+INFO: [Synth 8-3886] merging instance 'r_score_reg[25]' (FDRE) to 'r_score_reg[26]'
+INFO: [Synth 8-3886] merging instance 'm_7segcon/r_val_reg[31]' (FD) to 'm_7segcon/r_val_reg[27]'
+INFO: [Synth 8-3886] merging instance 'm_7segcon/r_val_reg[27]' (FD) to 'm_7segcon/r_val_reg[29]'
+INFO: [Synth 8-3886] merging instance 'm_7segcon/r_val_reg[29]' (FD) to 'm_7segcon/r_val_reg[28]'
+INFO: [Synth 8-3886] merging instance 'm_7segcon/r_val_reg[28]' (FD) to 'm_7segcon/r_val_reg[30]'
+INFO: [Synth 8-3886] merging instance 'm_7segcon/r_val_reg[30]' (FD) to 'm_7segcon/r_val_reg[25]'
+INFO: [Synth 8-3886] merging instance 'm_7segcon/r_val_reg[25]' (FD) to 'm_7segcon/r_val_reg[26]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:01:29 . Memory (MB): peak = 819.254 ; gain = 608.754
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping  Report (see note below)
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|sram        | memory_array_reg | 512 K x 8(READ_FIRST)  | W | R |                        |   |   | Port A           | 0      | 120    | 
+|sram        | memory_array_reg | 512 x 8(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|sram        | memory_array_reg | 32 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 8      | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping  Report (see note below)
++-----------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name      | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|m_draw_rectangle | A*B             | 15     | 11     | -      | -      | 26     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|m_main           | C'+A2*(B:0x320) | 11     | 10     | 11     | -      | 19     | 1    | 0    | 1    | -    | -     | 0    | 1    | 
+|m_main           | A*B             | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|m_main           | A*B             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|m_main           | (PCIN>>17)+A*B  | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|m_main           | (D+A)*B         | 11     | 12     | -      | 11     | 24     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
++-----------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_wiz/clk_out1' to pin 'clk_wiz/bbstub_clk_out1/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:06 ; elapsed = 00:01:48 . Memory (MB): peak = 953.527 ; gain = 743.027
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:20 ; elapsed = 00:02:03 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_1_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_3_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_5_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_9_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_11_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_13_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_0__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_1__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_2__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_3__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_4__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_5__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_6__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance vram_read/memory_array_reg_7_7__0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:23 ; elapsed = 00:02:06 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:24 ; elapsed = 00:02:08 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:24 ; elapsed = 00:02:08 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:25 ; elapsed = 00:02:09 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:25 ; elapsed = 00:02:09 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:25 ; elapsed = 00:02:09 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:25 ; elapsed = 00:02:09 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+------------+------+
+|      |Cell        |Count |
++------+------------+------+
+|1     |clk_wiz_0   |     1|
+|2     |CARRY4      |   616|
+|3     |DSP48E1     |     1|
+|4     |DSP48E1_1   |     1|
+|5     |DSP48E1_2   |     1|
+|6     |LUT1        |   377|
+|7     |LUT2        |   680|
+|8     |LUT3        |   860|
+|9     |LUT4        |   712|
+|10    |LUT5        |   437|
+|11    |LUT6        |  1028|
+|12    |RAMB18E1    |     1|
+|13    |RAMB36E1    |     1|
+|14    |RAMB36E1_1  |     3|
+|15    |RAMB36E1_10 |     3|
+|16    |RAMB36E1_11 |     3|
+|17    |RAMB36E1_12 |     3|
+|18    |RAMB36E1_13 |     3|
+|19    |RAMB36E1_14 |     3|
+|20    |RAMB36E1_15 |     3|
+|21    |RAMB36E1_16 |     3|
+|22    |RAMB36E1_17 |     3|
+|23    |RAMB36E1_18 |     3|
+|24    |RAMB36E1_19 |     1|
+|25    |RAMB36E1_2  |     1|
+|26    |RAMB36E1_20 |     1|
+|27    |RAMB36E1_21 |     1|
+|28    |RAMB36E1_22 |     1|
+|29    |RAMB36E1_23 |     4|
+|30    |RAMB36E1_24 |     2|
+|31    |RAMB36E1_3  |    35|
+|32    |RAMB36E1_4  |     1|
+|33    |RAMB36E1_5  |     1|
+|34    |RAMB36E1_6  |    34|
+|35    |RAMB36E1_7  |     3|
+|36    |RAMB36E1_8  |     3|
+|37    |RAMB36E1_9  |     3|
+|38    |FDRE        |   249|
+|39    |FDSE        |    13|
+|40    |IBUF        |     6|
+|41    |OBUF        |    45|
++------+------------+------+
+
+Report Instance Areas: 
++------+--------------+---------------------------------+------+
+|      |Instance      |Module                           |Cells |
++------+--------------+---------------------------------+------+
+|1     |top           |                                 |  5151|
+|2     |  frame       |m_draw_rectangle                 |   129|
+|3     |    vram_read |sram__parameterized0             |    98|
+|4     |  m_7segcon   |m_7segcon                        |  3750|
+|5     |  rand_height |m_lfsr_4bit                      |    14|
+|6     |  rand_width  |m_lfsr_4bit_0                    |    14|
+|7     |  target      |m_draw_rectangle__parameterized0 |    43|
+|8     |    vram_read |sram__parameterized1             |    29|
+|9     |  vram_read   |sram                             |   184|
++------+--------------+---------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:25 ; elapsed = 00:02:09 . Memory (MB): peak = 1089.621 ; gain = 879.121
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 174 critical warnings and 139 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:04 ; elapsed = 00:01:38 . Memory (MB): peak = 1089.621 ; gain = 638.250
+Synthesis Optimization Complete : Time (s): cpu = 00:01:25 ; elapsed = 00:02:09 . Memory (MB): peak = 1089.621 ; gain = 879.121
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 748 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+219 Infos, 163 Warnings, 158 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:27 ; elapsed = 00:02:03 . Memory (MB): peak = 1089.621 ; gain = 872.543
+INFO: [Common 17-1381] The checkpoint 'Z:/timing_game/timing_game.runs/synth_1/m_main.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 1089.621 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 15 13:59:02 2018...

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Thu Nov 15 15:40:40 2018
+# Process ID: 4380
+# Current directory: Z:/timing_game/timing_game.runs/synth_2
+# Command line: vivado.exe -log m_main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source m_main.tcl
+# Log file: Z:/timing_game/timing_game.runs/synth_2/m_main.vds
+# Journal file: Z:/timing_game/timing_game.runs/synth_2\vivado.jou
+#-----------------------------------------------------------
+source m_main.tcl -notrace
