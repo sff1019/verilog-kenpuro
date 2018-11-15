@@ -4,10 +4,9 @@
 `default_nettype none
 /******************************************************************************/
 module m_main (
-  input wire w_clk,
-  input wire [4:0] w_btn,
-  input wire [11:0] sw,
-  output wire[15:0] w_led,
+  input wire w_clk, // 100 MHz
+  input wire [1:0] w_btn,
+  input wire sw,
   output reg hsync,
   output reg vsync,
   output reg [3:0] vga_red,
@@ -17,29 +16,18 @@ module m_main (
   output reg [7:0] r_an
 );
 
-  wire clk; // 100MHz
+  wire clk; // 40MHz
   wire w_locked;
   wire w_rst = ~w_locked;
-  reg r_finish = 0;
-  reg [31:0] r_duration = 0;
   reg [10:0] r_draw_x, r_draw_y;
   reg [11:0] r_rgb;
   wire [6:0] w_sg;
   wire [7:0] w_an;
-  assign w_led = w_btn;
-
-//    reg w_clk = 0;
-//    initial forever #1 w_clk = ~w_clk;
+  
+//      reg w_clk = 0;
+//      initial forever #1 w_clk = ~w_clk;
 
   clk_wiz_0 clk_wiz (clk, 0, w_locked, w_clk); // 100MHz -> 40MHz
-
-  /******************************************************************************/
-  // Count time
-  /******************************************************************************/
-
-  reg [25:0] r_tcnt=0;
-  always@(posedge clk) r_tcnt <= (r_tcnt>=(40000000-1)) ? 0 : r_tcnt + 1;
-  always@(posedge clk) if(r_tcnt==0) r_duration <= r_duration + 1;
 
   /******************************************************************************/
   // Display on monitor through vga
@@ -91,7 +79,6 @@ module m_main (
 
   wire [VRAM_D_WIDTH-1:0] w_frame_data_in = 4'b1001;
   wire [VRAM_D_WIDTH-1:0] w_frame_data_out;
-  // assign w_frame_data_in = 4'b1001;
   reg [10:0] r_frame_width = 200;
   reg [10:0] r_frame_height = 150;
   wire w_frame_draw;
@@ -118,7 +105,6 @@ module m_main (
 
   wire [VRAM_D_WIDTH-1:0] w_target_data_in, w_target_data_out;
   assign w_target_data_in = 4'b0100;
-  reg [10:0] target_width = 20, target_height = 15;
   wire  w_draw_target;
 
   m_draw_rectangle #(
@@ -131,8 +117,8 @@ module m_main (
     .i_write(w_draw_target),
     .current_x(r_draw_x),
     .current_y(r_draw_y),
-    .half_width(target_width),
-    .half_height(target_height),
+    .half_width(20),
+    .half_height(15),
     .i_data(w_target_data_in),
     .o_data(w_target_data_out)
   );
@@ -156,31 +142,55 @@ module m_main (
   // 6. If restarted, reset every variable
   /******************************************************************************/
 
+  reg [25:0] r_tcnt=1;
   reg [19:0] r_cnt=0;
   reg r_restart = 0;
-  reg [31:0] r_score=0;
+  reg [19:0] r_score=0; // Max 700000
+  reg r_finish = 0;
+  reg [3:0] r_duration = 0; // Max 15 sec
+
 
   wire [3:0]  r_lfsr_width, r_lfsr_height;
   reg r_random=0;
   m_lfsr_4bit rand_width (clk, w_rst, r_random, 1, r_lfsr_width);
   m_lfsr_4bit rand_height (clk, w_rst, r_random, 0, r_lfsr_height);
-
-  m_7segcon m_7segcon(clk, r_duration, w_sg, w_an);
-
+ 
+  m_7segcon m_7segcon(clk, r_score, w_sg, w_an);
+ 
+ // Every time clock is positive
   always @(posedge clk) begin
     r_address <= r_draw_y * SCREEN_WIDTH + r_draw_x;
     r_cnt <= (r_cnt>=(200000-1)) ? 0 : r_cnt + 1;
+    r_tcnt <= (!r_finish) ? (r_tcnt>=(40000000-1)) ? 0 : r_tcnt + 1 : r_tcnt;
     r_sg <= w_sg;
     r_an <= w_an;
-    r_random <= (sw[0]) ? 1 : 0;
+    r_random <= (sw) ? 1 : 0;
+    
+    // Count duration
+    if(r_tcnt==0) r_duration <= r_duration + 1;
+    
+    if (r_finish) begin
+      r_score <= 700000 - (r_frame_width + r_frame_width) * (r_frame_height + r_frame_height) - 1000 * r_duration * r_duration;
+    end
 
+    if (r_restart) begin
+      r_score <= 0;
+      r_frame_width <= 354;
+      r_frame_height <= 265;
+      r_duration <= 0;
+      r_finish <= 0;
+      r_tcnt <= 0;
+    end
+    
+    // Change frame length and check for finish and restart
     if (r_cnt == 0) begin
-      r_finish <= (w_btn[4]|| r_duration == 15) ? 1 : r_finish;
-      r_restart <= (w_btn[2]) ? 1 : 0;
+      r_finish <= (w_btn[1]|| r_duration == 15) ? 1 : r_finish;
+      r_restart <= (w_btn[0]) ? 1 : 0;
       r_frame_width <= (r_finish == 0) ? ((r_frame_width > 20) ? r_frame_width - r_lfsr_width : 354) : r_frame_width;
       r_frame_height <= (r_finish == 0) ? ((r_frame_height > 15) ? r_frame_height - r_lfsr_height : 267) : r_frame_height;
     end
-
+    
+    // Store data into VRAM
     if (w_draw_target)
     begin
       r_vram_write <= 1;
@@ -192,7 +202,8 @@ module m_main (
       r_vram_data_in <= w_frame_data_out;
     end
     else r_vram_write <= 0;
-
+    
+    // Display color on VGA display
     if (w_active && w_draw_target || w_frame_draw)
       r_rgb <= {{2{w_vram_data_out[2], w_vram_data_out[3]}},{2{w_vram_data_out[1], w_vram_data_out[3]}},{2{w_vram_data_out[0], w_vram_data_out[3]}}};
     else if (w_active && !w_draw_target && !w_frame_draw)
@@ -204,18 +215,6 @@ module m_main (
     vga_green <= r_rgb[7:4];
     vga_blue <= r_rgb[3:0];
 
-    if (r_finish) begin
-      r_score <= 1000000 - (r_frame_width + r_frame_width) * (r_frame_height + r_frame_height) - 1000 * r_duration * r_duration;
-    end
-
-    if (r_restart) begin
-      r_score <= 0;
-      r_frame_width <= 354;
-      r_frame_height <= 265;
-      r_duration <= 0;
-      r_finish <= 0;
-      r_tcnt <= 0;
-    end
   end
 
 endmodule
