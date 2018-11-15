@@ -13,6 +13,7 @@
 - Nexys 4 DDA
 - VGA モニタ
 - Verilog
+- LCD-8000V monitor
 
 ## コードの説明
 
@@ -68,4 +69,3 @@ always@(posedge clk) if(r_tcnt==0) r_duration <= r_duration + 1;
 
 Memory File Generator:
 - https://github.com/WillGreen/fpgatools
-https://timetoexplore.net/
